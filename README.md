@@ -5,6 +5,7 @@
 - Nom : `<nom1> <prenom1> - ... - <nomX> <prenomX>.zip`
 - Taille **< 10 Mo**
 - **Date de rendu : 7 octobre 2026, 23h00**
+- **Date de présentation : 8 octobre 2026, 13h320**
 
 ## A inclure dans le rendu final
 
