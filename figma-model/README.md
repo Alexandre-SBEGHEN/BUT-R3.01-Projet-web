@@ -1,1 +1,0 @@
-# Maquettes issues de Figma
