@@ -1,4 +1,6 @@
-# Site web
+# Website
+
+Site web dynamique du projet.
 
 ## Pages
 
@@ -14,6 +16,10 @@
 - Compression d'images : WebP ou Avif
     - Avif est préférable car un peu plus rapide
 - Utiliser la convention *BEM* pour nommer les classes CSS
+
+## Outils
+
+- **[Website Builder](https://github.com/Alexandre-SBEGHEN/Website-Builder)** : outil portable de build du site web.
 
 ## Liens utiles
 
