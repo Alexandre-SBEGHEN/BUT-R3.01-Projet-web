@@ -10,7 +10,7 @@
     - **-1 point** / avertissement ⚠️
     - **-5 points** / erreur ❌
 
-- Tester régulièrement le site avec *Lighthouse*
+- Tester régulièrement les pages avec *Lighthouse*, *GreenIT*, *Wave*
 - Compression d'images : WebP ou Avif
     - Avif est préférable car un peu plus rapide
 - Utiliser la convention *BEM* pour nommer les classes CSS
@@ -22,5 +22,5 @@
 - [Minifieur CSS](https://www.toptal.com/developers/cssminifier)
 - [Minifieur JavaScript](https://www.toptal.com/developers/javascript-minifier)
 - [Squoosh](https://squoosh.app/) pour la compression d'images
-- Convention de nommage [BEM](https://alticreation.com/blog/bem-pour-le-css/) 
+- [Convention BEM](https://alticreation.com/blog/bem-pour-le-css/) pour le nommage des classes CSS 
 - [Sass](https://sass-lang.com/) pour les feuilles de style
