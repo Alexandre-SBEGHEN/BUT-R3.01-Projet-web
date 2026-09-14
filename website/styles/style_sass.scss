@@ -1,0 +1,109 @@
+/*
+
+un commentaire qui sert à rien
+
+*/
+
+// Variables
+$color-bg: #fafafa;
+$color-text: #1e1e1e;
+$color-accent: #3b5bdb;
+$font-main: system-ui, -apple-system, "Segoe UI", sans-serif;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-main;
+  background: $color-bg;
+  color: $color-text;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid darken($color-bg, 10%);
+
+  .logo {
+    font-weight: 700;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+
+      &:hover {
+        color: $color-accent;
+      }
+
+      &.active {
+        color: $color-accent;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero {
+  max-width: 32rem;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1.2rem;
+  }
+
+  button {
+    background: $color-accent;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: darken($color-accent, 10%);
+    }
+  }
+
+  #click-count {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: darken($color-bg, 40%);
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  color: darken($color-bg, 35%);
+  border-top: 1px solid darken($color-bg, 10%);
+}
