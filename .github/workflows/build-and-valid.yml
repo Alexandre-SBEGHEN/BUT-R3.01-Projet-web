@@ -5,10 +5,12 @@ name: Build and valid HTML/CSS
 on:
   push:
     branches:
+      - main
       - 'website/**'
       - 'CI/**'
   pull_request:
     branches:
+      - main
       - 'website/**'
       - 'CI/**'
 
