@@ -17,14 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      -name: Get Sass
+      - name: Get Sass
         run: npm install -g sass
 
       - name: Get wsbuilder
-        run: curl -o wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
+        run: curl -fo wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
+        run: chmod +x wsbuilder
 
       - name: Build website
         run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
-
-      
-      
