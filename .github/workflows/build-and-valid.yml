@@ -27,3 +27,11 @@ jobs:
 
       - name: Build website
         run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
+
+      - name: Validate CSS
+        run: |
+          npm install -g w3c-css-validator
+          for f in $(find website/*); do
+              extension="${f##*.}"
+              [[ extension = "css" ]] && css-validator "$f"
+          done
