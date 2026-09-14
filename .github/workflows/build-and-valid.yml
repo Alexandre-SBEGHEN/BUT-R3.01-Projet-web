@@ -21,8 +21,9 @@ jobs:
         run: npm install -g sass
 
       - name: Get wsbuilder
-        run: curl -fo wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
-        run: chmod +x wsbuilder
+        run: |
+          curl -fo wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
+          chmod +x wsbuilder
 
       - name: Build website
         run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
