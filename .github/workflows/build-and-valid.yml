@@ -32,8 +32,5 @@ jobs:
 
       - name: Validate CSS
         run: |
-          npm install -g w3c-css-validator
-          for f in $(find website/*); do
-              extension="${f##*.}"
-              [[ "$extension" = "css" ]] && css-validator "$f"
-          done
+          npm install -g stylelint stylelint-config-standard
+          npx stylelint "website/build/**/*.css"
