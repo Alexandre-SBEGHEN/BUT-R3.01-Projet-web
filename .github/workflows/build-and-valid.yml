@@ -6,9 +6,11 @@ on:
   push:
     branches:
       - 'website/**'
+      - 'CI/**'
   pull_request:
     branches:
       - 'website/**'
+      - 'CI/**'
 
 jobs:
   build:
