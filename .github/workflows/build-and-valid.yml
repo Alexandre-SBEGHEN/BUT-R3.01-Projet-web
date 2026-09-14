@@ -1,0 +1,30 @@
+# Faire un build du site et valider tous les HTML/CSS
+
+name: Build and valid HTML/CSS
+
+on:
+  push:
+    branches:
+      - 'website/**'
+  pull_request:
+    branches:
+      - 'website/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      -name: Get Sass
+        run: npm install -g sass
+
+      - name: Get wsbuilder
+        run: curl -o wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
+
+      - name: Build website
+        run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
+
+      
+      
