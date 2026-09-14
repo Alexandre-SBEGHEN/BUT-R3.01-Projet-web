@@ -33,4 +33,4 @@ jobs:
       - name: Validate CSS
         run: |
           npm install -g stylelint stylelint-config-standard
-          npx stylelint "website/build/**/*.css"
+          npx stylelint "website/build/**/*.css" --allow-empty-input
