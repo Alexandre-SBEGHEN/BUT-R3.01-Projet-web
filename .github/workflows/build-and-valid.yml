@@ -65,5 +65,5 @@ jobs:
       - name: HTML Validation
         run: |
           npm install -g html-validate
-          html-validate build/*.html
+          html-validate *.html
           
