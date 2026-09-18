@@ -62,8 +62,6 @@ jobs:
               rel="${f#website/build/}"
               curl -s "http://127.0.0.1:8000/${rel}" -o "${f%.*}.html"
           done
-          echo "--- DEBUG index.html ---"
-          cat website/build/index.html
 
       - name: HTML Validation
         run: |
@@ -71,4 +69,3 @@ jobs:
           for f in $(find website/build -name *.html); do
             html-validate "$f"
           done
-          
