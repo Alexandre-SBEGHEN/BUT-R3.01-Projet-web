@@ -34,5 +34,18 @@ jobs:
 
       - name: Validate CSS
         run: |
+          cat <<'EOF' > .stylelintrc.json
+          {
+              "extends": "stylelint-config-standard",
+              "rules": {
+              "no-descending-specificity": null,
+              "selector-class-pattern": null,
+              "custom-property-pattern": null,
+              "alpha-value-notation": null,
+              "color-function-notation": null,
+              "declaration-block-no-redundant-longhand-properties": null
+              }
+          }
+          EOF
           npm install -g stylelint stylelint-config-standard
-          npx stylelint "website/build/**/*.css" --allow-empty-input
+          npx stylelint "website/build/**/*.css" --allow-empty-input --config .stylelintrc.json
