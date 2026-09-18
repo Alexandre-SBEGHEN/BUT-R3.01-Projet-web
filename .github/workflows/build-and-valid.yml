@@ -61,6 +61,8 @@ jobs:
           for f in $(find website/build/ -name "*.php"); do
               curl -s "http://127.0.0.1:8000/${f}" -o "${f%.*}.html"
           done
+          echo "--- DEBUG index.html ---"
+          cat website/build/index.html
 
       - name: HTML Validation
         run: |
