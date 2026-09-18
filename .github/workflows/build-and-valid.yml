@@ -44,6 +44,7 @@ jobs:
               "alpha-value-notation": null,
               "color-function-notation": null,
               "declaration-block-no-redundant-longhand-properties": null
+              "declaration-block-single-line-max-declarations": null
               }
           }
           EOF
