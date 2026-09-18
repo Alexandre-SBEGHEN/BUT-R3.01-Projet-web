@@ -32,7 +32,7 @@ jobs:
       - name: Build website
         run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
 
-      - name: Validate CSS
+      - name: CSS Validation
         run: |
           cat <<'EOF' > .stylelintrc.json
           {
@@ -50,3 +50,20 @@ jobs:
           EOF
           npm install -g stylelint stylelint-config-standard
           npx stylelint "website/build/**/*.css" --allow-empty-input --config .stylelintrc.json
+      
+      - name: Start PHP server
+        run: |
+          php -S 127.0.0.1:8000 -t ./website/build &
+          sleep 5
+
+      - name: Get HTMLs from PHPs
+        run: |
+          for f in $(find website/build/ -name "*.php"); do
+              curl -s "http://127.0.0.1:8000/$f" -o "${f%.*}.html"
+          done
+
+      - name: HTML Validation
+        run: |
+          npm install -g html-validate
+          html-validate build/*.html
+          
