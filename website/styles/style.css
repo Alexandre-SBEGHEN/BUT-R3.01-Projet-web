@@ -25,7 +25,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2rem;
-  border-bottom: 1px solid rgb(88.0392156863%, 88.0392156863%, 88.0392156863%);
+  border-bottom: 1px solid rgb(88.0392%, 88.0392%, 88.0392%);
 }
 .site-header .logo {
   font-weight: 700;
@@ -76,7 +76,7 @@ main {
   transition: background 0.15s ease;
 }
 .hero button:hover {
-  background: rgb(13.8133874239%, 26.091954023%, 75.2062204192%);
+  background: rgb(13.8133%, 26.0919%, 75.2062%);
 }
 .hero #click-count {
   margin-top: 0.8rem;
@@ -88,6 +88,6 @@ footer {
   text-align: center;
   padding: 1.2rem;
   font-size: 0.85rem;
-  color: rgb(63.0392156863%, 63.0392156863%, 63.0392156863%);
-  border-top: 1px solid rgb(88.0392156863%, 88.0392156863%, 88.0392156863%);
+  color: rgb(63.0392%, 63.0392%, 63.0392%);
+  border-top: 1px solid rgb(88.0392%, 88.0392%, 88.0392%);
 }
