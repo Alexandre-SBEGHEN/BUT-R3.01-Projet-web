@@ -16,7 +16,7 @@
 
 ## Livrable
 
-- Nom : `<nom1> <prenom1> - ... - <nomX> <prenomX>.zip`
+- Nom : `BARTAL Manal - CHAIB EDDOUR Kawthar - GOUIN Gabriel - MANKAI Adam - SBEGHEN Alexandre.zip`
 - Taille **< 10 Mo**
 - **Date de rendu : 7 octobre 2026, 23h00**
 - **Date de présentation : 8 octobre 2026, 13h30**
