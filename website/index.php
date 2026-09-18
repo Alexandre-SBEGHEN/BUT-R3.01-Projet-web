@@ -19,7 +19,7 @@
     <section class="hero">
       <h1>Bienvenue</h1>
       <p>Voici un site très basique avec deux pages, une feuille de style compilée depuis Sass, et un peu de JavaScript.</p>
-      <button id="action-btn">Clique-moi</button>
+      <button type="submit" id="action-btn">Clique-moi</button>
       <p id="click-count"></p>
     </section>
   </main>
