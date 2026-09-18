@@ -1,6 +1,6 @@
 <h1 align="center">R3.01 — Projet</h1>
 
-<p align="center"><i>par Alexandre SBEGHEN, ...</i></p>
+<p align="center"><i>par Alexandre SBEGHEN, BARTAL Manal, CHAIB EDDOUR Kawthar, GOUIN Gabriel, MANKAI Adam </i></p>
 
 <div align="center">
     <img alt="HTML" src="https://img.shields.io/badge/HTML-%23E34F26?style=flat&logo=html5&logoColor=white">
