@@ -65,7 +65,7 @@ jobs:
       - name: HTML Validation
         run: |
           npm install -g html-validate
-          for f in "$(find website/build -name *.html)"; do
+          for f in $(find website/build -name *.html); do
             html-validate "$f"
           done
           
