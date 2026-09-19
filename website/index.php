@@ -1,5 +1,10 @@
 <?php
 session_start();
+require("controllers/AuthenticationController.php");
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+    VerifieConnexion();
+}
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
