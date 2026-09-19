@@ -33,6 +33,6 @@ jobs:
           password: ${{secrets.SSH_PWD}}
           port: 22
           uploads: |
-            ./website/build => ./www/public_html/
+            ./website/build => ./www/
           delete: 'true'
           
