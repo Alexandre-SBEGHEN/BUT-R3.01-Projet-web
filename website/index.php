@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("controllers/AuthenticationController.php");
+require("controllers/AuthentificationController.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     VerifieConnexion();
