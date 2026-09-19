@@ -3,9 +3,11 @@
 name: Valid HTML/CSS
 
 on:
+  push:
+    branches:
+      - 'website/**'
   pull_request:
     branches:
-      - main
       - 'website/**'
 
 jobs:
