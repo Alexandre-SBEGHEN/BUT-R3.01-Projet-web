@@ -13,8 +13,8 @@
 </div>
 
 <div align="center">
-    <img alt="" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/valid-html-css.yml/badge.svg">
-    <img alt="" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/build-and-deploy.yml/badge.svg">
+    <img alt="Valid HTML/CSS status badge" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/valid-html-css.yml/badge.svg">
+    <img alt="Build and Deploy status badge" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/build-and-deploy.yml/badge.svg">
 </div>
 
 ---
