@@ -1,4 +1,4 @@
-<h1 align="center">R3.01 — Projet</h1>
+<h1 align="center">BUT2, R3.01 — Projet Web</h1>
 
 <p align="center"><i>par Alexandre SBEGHEN, BARTAL Manal, CHAIB EDDOUR Kawthar, GOUIN Gabriel, MANKAI Adam </i></p>
 
