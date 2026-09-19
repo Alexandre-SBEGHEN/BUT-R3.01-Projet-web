@@ -1,3 +1,11 @@
+# Fichiers des IDE
 .DS_Store
 .idea/
 .vscode/
+
+# Fichiers sensibles
+.env
+.env.*
+*.db
+*.sql
+*.sqlite
