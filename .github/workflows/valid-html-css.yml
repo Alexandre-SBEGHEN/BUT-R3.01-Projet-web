@@ -1,18 +1,16 @@
-# Faire un build du site et valider tous les HTML/CSS
+# Valider tous les HTML/CSS
 
-name: Build and valid HTML/CSS
+name: Valid HTML/CSS
 
 on:
   push:
     branches:
       - main
       - 'website/**'
-      - 'CI/**'
   pull_request:
     branches:
       - main
       - 'website/**'
-      - 'CI/**'
 
 jobs:
   build:
