@@ -12,6 +12,11 @@
     <img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff">
 </div>
 
+<div align="center">
+    <img alt="" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/valid-html-css.yml/badge.svg">
+    <img alt="" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/build-and-deploy.yml/badge.svg">
+</div>
+
 ---
 
 ## Sous-répertoires
