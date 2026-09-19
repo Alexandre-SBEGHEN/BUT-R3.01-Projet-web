@@ -1,0 +1,39 @@
+# Faire un build du site et upload via SSH
+
+name: Build and deploy website
+
+on:
+  push:
+    branches:
+      - main
+      - 'CI/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get Sass
+        run: npm install -g sass
+      
+      - name: Get wsbuilder
+        run: |
+          curl -fo wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
+          chmod +x wsbuilder
+
+      - name: Build website
+        run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
+      
+      - name: SFTP upload
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          password: ${{secrets.SSH_PWD}}
+          port: 22
+          uploads: |
+            ./website/build => ./www/public_html/
+          delete: 'true'
+          
