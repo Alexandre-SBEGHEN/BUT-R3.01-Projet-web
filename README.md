@@ -1,6 +1,6 @@
 <h1 align="center">BUT2, R3.01 — Projet Web</h1>
 
-<p align="center"><i>par Alexandre SBEGHEN, BARTAL Manal, CHAIB EDDOUR Kawthar, GOUIN Gabriel, MANKAI Adam </i></p>
+<p align="center"><i>par BARTAL Manal, CHAIB EDDOUR Kawthar, GOUIN Gabriel, MANKAI Adam, Alexandre SBEGHEN</i></p>
 
 <div align="center">
     <img alt="HTML" src="https://img.shields.io/badge/HTML-%23E34F26?style=flat&logo=html5&logoColor=white">
