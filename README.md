@@ -25,7 +25,7 @@
 ## Sous-répertoires
 
 - [**docs**](/docs/) : Fichiers `.md` de documentation du projet
-- [**model**](/figma-model/) : Maquettes du site réalisées sur Figma
+- [**model**](/figma-model/) : Maquettes du site web réalisées sur Figma
 - [**website**](/website/) : Racine du site web
 
 ## Divers
