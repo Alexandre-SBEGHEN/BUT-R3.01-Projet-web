@@ -13,6 +13,7 @@
 </div>
 
 <div align="center">
+    <img alt="Repo Size" src="https://img.shields.io/github/repo-size/Alexandre-SBEGHEN/BUT-R3.01-Projet-web">
     <img alt="Valid HTML/CSS status badge" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/valid-html-css.yml/badge.svg">
     <img alt="Build and Deploy status badge" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/build-and-deploy.yml/badge.svg">
 </div>
