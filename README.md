@@ -14,13 +14,13 @@
 
 ---
 
-## Sous dossiers
+## Sous-répertoires
 
-- [docs](/docs/) : Fichiers de documentation
-- [figma-model](/figma-model/) : Maquettes réalisées depuis Figma
+- [docs](/docs/) : Fichiers `.md` de documentation du projet
+- [model](/figma-model/) : Maquettes du site réalisées sur Figma
 - [website](/website/) : Racine du site web
 
 ## Divers
 
-- [Consignes du projet](https://www.mickael-martin-nevot.com/univ-amu/iut/but-informatique/developpement-web/s24-projet.pdf)
-- [Comment citer une IA](https://app.notion.com/p/Historique-des-prompts-3c7d3b60e70180578c11c65b8055c128) (par M. Martin Nevot) → [PMODEL.md](/docs/PMODEL.md) : modèle en markdown
+- [**Consignes du projet**](https://www.mickael-martin-nevot.com/univ-amu/iut/but-informatique/developpement-web/s24-projet.pdf)
+- [**Comment citer une IA**](https://app.notion.com/p/Historique-des-prompts-3c7d3b60e70180578c11c65b8055c128) (par M. Martin Nevot) → [PMODEL.md](/docs/PMODEL.md) : modèle en markdown
