@@ -10,6 +10,7 @@
     <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
     <img alt="Bash" src="https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff">
     <img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff">
+    <img alt="GitHub Actions" src="https://img.shields.io/badge/Github_Actions-249AF9?style=flat&logo=githubactions&logoColor=white">
 </div>
 
 <div align="center">
