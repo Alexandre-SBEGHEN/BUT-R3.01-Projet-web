@@ -53,7 +53,7 @@ jobs:
           php -S 127.0.0.1:8000 -t ./website/build &
           sleep 5
 
-      - name: Get HTMLs from PHPs
+      - name: Get HTML pages
         run: |
           for f in $(find website/build/ -name "*.php"); do
               name="${f#website/build/}"
