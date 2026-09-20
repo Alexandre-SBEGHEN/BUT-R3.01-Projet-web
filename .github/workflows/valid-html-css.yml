@@ -55,9 +55,9 @@ jobs:
 
       - name: Get HTML pages
         run: |
-          for f in $(find website/build/ -name "*.php"); do
-              name="${f#website/build/}"
-              curl -s "http://127.0.0.1:8000/${name}" -o "${f%.*}.html"
+          pages=('')
+          for p in "${pages[@]}"; do
+              curl -s "http://127.0.0.1:8000/${p}" -o "${p:-index}.html"
           done
 
       - name: HTML Validation
