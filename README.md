@@ -1,6 +1,6 @@
-<h1 align="center">R3.01 — Projet</h1>
+<h1 align="center">BUT2, R3.01 — Projet Web</h1>
 
-<p align="center"><i>par Alexandre SBEGHEN, BARTAL Manal, CHAIB EDDOUR Kawthar, GOUIN Gabriel, MANKAI Adam </i></p>
+<p align="center"><i>par BARTAL Manal, CHAIB EDDOUR Kawthar, GOUIN Gabriel, MANKAI Adam, Alexandre SBEGHEN</i></p>
 
 <div align="center">
     <img alt="HTML" src="https://img.shields.io/badge/HTML-%23E34F26?style=flat&logo=html5&logoColor=white">
@@ -9,33 +9,26 @@
     <img alt="Sass" src="https://img.shields.io/badge/Sass-D17CA5?style=flat&logo=sass&logoColor=white">
     <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
     <img alt="Bash" src="https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff">
-    <img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff">
+    <img alt="Postgres" src="https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white">
+    <img alt="GitHub Actions" src="https://img.shields.io/badge/Github_Actions-249AF9?style=flat&logo=githubactions&logoColor=white">
+</div>
+
+<div align="center">
+    <img alt="Repo Size" src="https://img.shields.io/github/repo-size/Alexandre-SBEGHEN/BUT-R3.01-Projet-web">
+    <a href="https://www.codefactor.io/repository/github/alexandre-sbeghen/but-r3.01-projet-web"><img src="https://www.codefactor.io/repository/github/alexandre-sbeghen/but-r3.01-projet-web/badge" alt="CodeFactor" /></a>
+    <img alt="Valid HTML/CSS status badge" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/valid-html-css.yml/badge.svg">
+    <img alt="Build and Deploy status badge" src="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/build-and-deploy.yml/badge.svg">
 </div>
 
 ---
 
-## Livrable
+## Sous-répertoires
 
-- Nom : `BARTAL Manal - CHAIB EDDOUR Kawthar - GOUIN Gabriel - MANKAI Adam - SBEGHEN Alexandre.zip`
-- Taille **< 10 Mo**
-- **Date de rendu : 7 octobre 2026, 23h00**
-- **Date de présentation : 8 octobre 2026, 13h30**
-
-## A inclure dans le rendu final
-
-- [ ] URL de l'index du site web
-- [ ] URL vers le projet Github
-- [ ] L'ensemble des identifiants de connexion du site web et de la base de données
-- [ ] Liste de l'ensemble des sources utilisées (y compris IA si utilisées)
-
-## Sous dossiers
-
-- [docs](/docs/) : Fichiers de documentation
-- [figma-model](/figma-model/) : Maquettes réalisées depuis Figma
-- [website](/website/) : Racine du site web
+- [**docs**](/docs/) : Fichiers `.md` de documentation du projet
+- [**model**](/figma-model/) : Maquettes du site web réalisées sur Figma
+- [**website**](/website/) : Racine du site web
 
 ## Divers
 
-- [Consignes du projet](https://www.mickael-martin-nevot.com/univ-amu/iut/but-informatique/developpement-web/s24-projet.pdf)
-- [Comment citer une IA](https://app.notion.com/p/Historique-des-prompts-3c7d3b60e70180578c11c65b8055c128) (par M. Martin Nevot)
-    - → [PMODEL.md](/docs/PMODEL.md) : modèle en markdown
+- [**Consignes du projet**](https://www.mickael-martin-nevot.com/univ-amu/iut/but-informatique/developpement-web/s24-projet.pdf)
+- [**Comment citer une IA**](https://app.notion.com/p/Historique-des-prompts-3c7d3b60e70180578c11c65b8055c128) (par M. Martin Nevot) → [PMODEL.md](/docs/PMODEL.md) : modèle en markdown

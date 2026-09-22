@@ -1,6 +1,8 @@
 <?php
-session_start();
-require("controllers/AuthentificationController.php");
+if (session_status() == PHP_SESSION_DISABLED) {
+    session_start();
+}
+require("modules/controllers/AuthentificationController.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     VerifieConnexion();
@@ -14,7 +16,7 @@ if (isset($_GET['page'])) {
 
 switch ($page) {
     case 'connexion':
-        require 'views/connexion.php';
+        require 'modules/views/connexion.php';
         break;
     default:
         http_response_code(404);

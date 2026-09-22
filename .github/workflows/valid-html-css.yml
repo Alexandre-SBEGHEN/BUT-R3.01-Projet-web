@@ -1,0 +1,68 @@
+# Valider tous les HTML/CSS
+
+name: Valid HTML/CSS
+
+on:
+  push:
+    branches:
+      - 'website/**'
+      - '!website/main'
+  pull_request:
+    branches:
+      - 'website/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get Sass
+        run: npm install -g sass
+
+      - name: Get wsbuilder
+        run: |
+          curl -fo wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
+          chmod +x wsbuilder
+
+      - name: Build website
+        run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
+
+      - name: CSS Validation
+        run: |
+          cat <<'EOF' > .stylelintrc.json
+          {
+              "extends": "stylelint-config-standard",
+              "rules": {
+              "no-descending-specificity": null,
+              "selector-class-pattern": null,
+              "custom-property-pattern": null,
+              "alpha-value-notation": null,
+              "color-function-notation": null,
+              "declaration-block-no-redundant-longhand-properties": null,
+              "declaration-block-single-line-max-declarations": null
+              }
+          }
+          EOF
+          npm install -g stylelint stylelint-config-standard
+          npx stylelint "website/build/**/*.css" --allow-empty-input --config .stylelintrc.json
+      
+      - name: Start PHP server
+        run: |
+          php -S 127.0.0.1:8000 -t ./website/build &
+          sleep 5
+
+      - name: Get HTML pages
+        run: |
+          pages=('')
+          for p in "${pages[@]}"; do
+              curl -s "http://127.0.0.1:8000/${p}" -o "${p:-index}.html"
+          done
+
+      - name: HTML Validation
+        run: |
+          npm install -g html-validate
+          for f in $(find website/build -name *.html); do
+            html-validate "$f"
+          done

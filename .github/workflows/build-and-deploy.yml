@@ -1,16 +1,11 @@
-# Faire un build du site et valider tous les HTML/CSS
+# Faire un build du site et upload via SSH
 
-name: Build and valid HTML/CSS
+name: Build and deploy website
 
 on:
   push:
     branches:
-      - 'website/**'
-      - 'CI/**'
-  pull_request:
-    branches:
-      - 'website/**'
-      - 'CI/**'
+      - website/main
 
 jobs:
   build:
@@ -21,7 +16,7 @@ jobs:
 
       - name: Get Sass
         run: npm install -g sass
-
+      
       - name: Get wsbuilder
         run: |
           curl -fo wsbuilder https://raw.githubusercontent.com/Alexandre-SBEGHEN/Website-Builder/main/wsbuilder
@@ -29,8 +24,15 @@ jobs:
 
       - name: Build website
         run: ./wsbuilder --sass-compile --sass-compress --sass-no-source-map --css-minify --js-minify website/
-
-      - name: Validate CSS
-        run: |
-          npm install -g stylelint stylelint-config-standard
-          npx stylelint "website/build/**/*.css" --allow-empty-input
+      
+      - name: SFTP upload
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          password: ${{secrets.SSH_PWD}}
+          port: 22
+          uploads: |
+            ./website/build => ./www/
+          delete: 'true'
+          
