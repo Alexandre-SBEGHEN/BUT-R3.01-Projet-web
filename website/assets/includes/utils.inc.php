@@ -1,6 +1,6 @@
 <?php
 
-function page_start(string $title, string $description, string $css_path = ''): void {
+function html_start(string $title, string $description, string $css_path = ''): void {
     $css_element = ($css_path !== '') ? "\n\t<link rel='stylesheet' type='text/css' href='$css_path'>" : '';
 
     echo <<< HTML
@@ -17,7 +17,7 @@ function page_start(string $title, string $description, string $css_path = ''): 
 HTML;
 }
 
-function page_end(): void {
+function html_end(): void {
     echo <<< HTML
 </body>
 </html>
