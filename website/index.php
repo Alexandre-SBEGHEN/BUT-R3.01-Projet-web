@@ -1,9 +1,10 @@
 <?php
+
 if (session_status() == PHP_SESSION_DISABLED) {
     session_start();
 }
 require 'assets/includes/autoloader.php';
-require("modules/controllers/AuthentificationController.php");
+require("modules/controllers/authentication_controller.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     VerifieConnexion();
@@ -12,22 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {
-    $page = 'connexion';
+    $page = 'home';
 }
 
 try {
     switch ($page) {
-        case 'connexion':
-            (new \modules\controllers\connexion_controller())->execute();
+        case 'home':
+            (new \modules\controllers\home_controller())->execute();
             break;
-        case 'inscription':
-            (new \modules\controllers\inscription_controller())->execute();
-            break;
-        case 'mdp_oublie':
-            (new \modules\controllers\mdp_oublie_controller())->execute();
-            break;
-        case 'deconnexion':
-            (new \modules\controllers\deconnexion_controller())->execute();
+        case 'login':
+            (new \modules\controllers\login_controller())->execute();
             break;
         default:
             throw new Exception("La page que vous cherchez est introuvable");
