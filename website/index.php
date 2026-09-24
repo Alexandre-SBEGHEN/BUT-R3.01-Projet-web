@@ -14,11 +14,24 @@ if (isset($_GET['page'])) {
     $page = 'connexion';
 }
 
-switch ($page) {
-    case 'connexion':
-        require 'modules/views/connexion.php';
-        break;
-    default:
-        http_response_code(404);
-        echo "Page non trouvée";
+try {
+    switch ($page) {
+        case 'connexion':
+            (new \modules\controllers\connexion_controller())->execute();
+            break;
+        case 'inscription':
+            (new \modules\controllers\inscription_controller())->execute();
+            break;
+        case 'mdp_oublie':
+            (new \modules\controllers\mdp_oublie_controller())->execute();
+            break;
+        case 'deconnexion':
+            (new \modules\controllers\deconnexion_controller())->execute();
+            break;
+        default:
+            throw new Exception("La page que vous cherchez est introuvable");
+    }
+} catch (Exception $e) {
+    http_response_code(404);
+    echo "Page non trouvée";
 }
