@@ -2,6 +2,7 @@
 if (session_status() == PHP_SESSION_DISABLED) {
     session_start();
 }
+require 'assets/includes/autoloader.php';
 require("modules/controllers/AuthentificationController.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
