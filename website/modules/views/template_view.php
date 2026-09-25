@@ -15,6 +15,49 @@ namespace modules\views;
 
 class template_view {
     /**
+     * Ouverture d'une page HTML
+     *
+     * L'insertion s'arrête après la balise <code>body</code>.
+     *
+     * @param string $title Titre de la page.
+     * @param string $description Meta-description de la page.
+     * @param string $css_path [Facultatif] Lien vers les styles CSS.
+     * @return void
+     */
+    public static function html_begin(string $title, string $description, string $css_path = ''): void {
+        $css_element = ($css_path !== '') ? "\n\t<link rel='stylesheet' type='text/css' href='$css_path'>" : '';
+
+        echo <<< HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>$title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="$description">$css_element
+</head>
+<body>
+
+HTML;
+    }
+
+    /**
+     * Fermeture d'une page HTML.
+     *
+     * Insère les balises de fermeture de <code>body</code> et <code>html</code>.
+     *
+     * @return void
+     *
+     * @see html_begin()
+     */
+    public static function html_end(): void {
+        echo <<< HTML
+</body>
+</html>
+HTML;
+    }
+
+    /**
      * Insère un header dans la page.
      *
      * Contient l'en-tête du de la page avec notamment
