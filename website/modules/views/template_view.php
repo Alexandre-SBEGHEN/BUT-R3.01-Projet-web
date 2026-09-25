@@ -68,11 +68,10 @@ HTML;
     public static function page_header(): void {
         echo <<< HTML
     <header>
-        bonjour
+        <p>header</p>
     </header>
 
 HTML;
-
     }
 
     /**
@@ -86,9 +85,9 @@ HTML;
     public static function page_footer(): void {
         echo <<< HTML
     <footer>
+        <p>bas de page</p>
     </footer>
 
 HTML;
-
     }
 }
