@@ -6,11 +6,15 @@ require 'assets/includes/utils.inc.php';
 
 class home_view {
     public function show(): void {
-        html_start('Cyber Cigales', 'Description');
+        template_view::html_begin('Cyber Cigales', 'Un Escape Game numérique pour apprendre à protéger tes données');
+        template_view::page_header();
         echo <<< HTML
-    <h1>Cyber Cigales</h1>
+    <main>
+        <h1>Cyber Cigales</h1>
+    </main>
 
 HTML;
-        html_end();
+        template_view::page_footer();
+        template_view::html_end();
     }
 }
