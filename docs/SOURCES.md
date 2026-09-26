@@ -1,5 +1,9 @@
 # Sources utilisées dans le projet
 
+## CSS
+
+- [**CSS Reset**](https://meyerweb.com/eric/tools/css/reset/) : Utilisé pour supprimer ou uniformiser les marges, espacements et tailles de police par défaut imposés par les navigateurs web
+
 ## SAAD / IA / LLM
 
 | Tâche | Outil | Prompt (résumé) | Solution proposée | Prise de décision |
