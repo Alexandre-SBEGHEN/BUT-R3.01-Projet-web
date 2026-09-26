@@ -9,13 +9,13 @@ class authentication_controller
         $username = $_POST["username"];
         if (empty($username)) {
             $_SESSION["error"] = "Merci de remplir le nom d'utilisateur.";
-            header('Location: index.php');
+            header('Location: login');
             exit;
         }
         $password = $_POST["password"];
         if (empty($password)) {
             $_SESSION["error"] = "Merci de remplir le mot de passe.";
-            header('Location: index.php');
+            header('Location: login');
             exit;
         }
     }

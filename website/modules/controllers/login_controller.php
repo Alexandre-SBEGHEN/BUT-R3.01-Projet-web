@@ -7,5 +7,6 @@ class login_controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             (new authentication_controller())->execute();
         }
+        (new \modules\views\login_view())->show();
     }
 }
