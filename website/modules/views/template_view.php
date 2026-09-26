@@ -13,6 +13,8 @@
 
 namespace modules\views;
 
+use assets\includes\init;
+
 class template_view {
     /**
      * Ouverture d'une page HTML
@@ -24,9 +26,10 @@ class template_view {
      * @param string $css_path [Facultatif] Lien vers les styles CSS.
      * @return void
      */
-    public static function html_begin(string $title, string $description, string $css_path = ''): void {
-        $css_element = ($css_path !== '') ? "\n\t<link rel='stylesheet' type='text/css' href='$css_path'>" : '';
+    public static function html_begin(string $title, string $description, array $css_names = []): void {
+        // $css_element = ($css_path !== '') ? "\n\t<link rel='stylesheet' type='text/css' href='$css_path'>" : '';
 
+        // Début, jusqu'aux CSS
         echo <<< HTML
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,7 +37,18 @@ class template_view {
     <title>$title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="$description">$css_element
+    <meta name="description" content="$description">
+HTML;
+        // Insertion des CSS
+        if (count($css_names) > 0) {
+            foreach ($css_names as $css_name) {
+                echo "\n\t";
+                echo '<link rel="stylesheet" href="' . init::getCSSDir() . '/' . $css_name . '">';
+            }
+        }
+        // Fin
+        echo <<< HTML
+
 </head>
 <body>
 
