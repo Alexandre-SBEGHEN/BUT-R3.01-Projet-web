@@ -15,7 +15,10 @@
 
 // Pré-requis
 session_start();
+require_once 'assets/includes/init.php';
+\assets\includes\init::init(__DIR__, __DIR__ . '/assets/styles');
 require 'assets/includes/autoloader.php';
+
 
 // Obtenir la page cible en fonction de l'URL
 $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
