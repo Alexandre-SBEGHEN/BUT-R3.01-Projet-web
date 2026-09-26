@@ -19,10 +19,16 @@ class home_view {
      * @return void
      */
     public function show(): void {
-        template_view::html_begin('Cyber Cigales', 'Un Escape Game numérique pour apprendre à protéger tes données');
+        template_view::html_begin(
+            'Cyber Cigales',
+            'Un Escape Game numérique pour apprendre à protéger tes données',
+            ['reset.css']
+        );
         template_view::page_header();
         echo <<< HTML
     <main>
+        <h1>bonjour</h1>
+        <a href="https://google.com">lien</a>
         <p>main</p>
     </main>
 
