@@ -14,4 +14,4 @@
 ## Divers
 
 - [**SFTP Upload GitHub Action**](https://github.com/marketplace/actions/sftp-upload) : Utilisé pour mettre à jour le site web autmatiquement dans [*Build and deploy website*](https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web/actions/workflows/build-and-deploy.yml)
-- [**Website Buidler**](https://github.com/Alexandre-SBEGHEN/Website-Builder) : Permet le build d'un site web, notamment en automatisant les minifications de scripts
+- [**Website Builder**](https://github.com/Alexandre-SBEGHEN/Website-Builder) : Permet le build d'un site web, notamment en automatisant les minifications de scripts
