@@ -277,9 +277,12 @@ for f in $(find "$build_directory"/*); do
             $((( $option_sass_compress )) && echo "--style=compressed") \
             $((( $option_sass_no_source_map )) && echo "--no-source-map") \
             "${f}" "${f%%.*}.css"
-
-        rm "$f"
     fi
+done
+
+# Supprimer les Sass
+for scss in $(find "$build_directory" -name *.scss); do
+    rm -rf "$scss"
 done
 
 # ---------- Succès ----------
