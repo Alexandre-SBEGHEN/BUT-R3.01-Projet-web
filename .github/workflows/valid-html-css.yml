@@ -27,7 +27,7 @@ jobs:
       - name: CSS Validation
         run: |
           npm install -g stylelint stylelint-config-standard
-          npx stylelint "website/build/**/*.css" --allow-empty-input --config .github/tools/.stylelintrc.json --ignore-path .github/tools/.stylelintignore
+          npx stylelint "website/build/**/*.css" --allow-empty-input --config .github/tools/.stylelintrc.json --ignore-path .github/tools/.stylelintignore --fix
       
       - name: Start PHP server
         run: |
