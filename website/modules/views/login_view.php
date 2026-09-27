@@ -4,8 +4,12 @@ namespace modules\views;
 
 class login_view {
     public function show(): void {
-        template_view::html_begin(title: 'Connexion', description: 'Page de connexion');
-        template_view::page_header();
+        template_view::html_begin(
+            title: 'Connexion',
+            description: 'Page de connexion',
+            css_names: ['reset.css', 'header.css']
+        );
+        template_view::page_header('login');
 
         if (isset($_SESSION['error'])) {
             echo "<p class='error'>" . htmlspecialchars($_SESSION['error']) . "</p>";
