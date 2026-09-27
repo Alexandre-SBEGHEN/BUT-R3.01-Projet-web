@@ -30,3 +30,4 @@ Site web dynamique du projet.
 - [Squoosh](https://squoosh.app/) pour la compression d'images
 - [Convention BEM](https://alticreation.com/blog/bem-pour-le-css/) pour le nommage des classes CSS 
 - [Sass](https://sass-lang.com/) pour les feuilles de style
+- [google-webfonts-helper](https://gwfh.mranftl.com/fonts) Pour l'utilisation de polices
