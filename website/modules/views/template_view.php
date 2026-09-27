@@ -96,16 +96,16 @@ HTML;
         echo <<< HTML
     <header>
         <nav class="navmenu">
-            <a class="navmenu__title" href="/">Cyber Cigales</a>
+            <a class="navmenu__title" href="/">CYBER<br>CIGALES</a>
             <ul class="navmenu__links">
 HTML;
         // Insertion des liens
         foreach ($navmenu_links as $label => $href) {
             echo "\n\t\t\t\t";
             echo sprintf(
-                '<li><a class="navmenu__link%s" href="/%s">%s</a></li>',
+                '<li><a class="navmenu__link%s" href="%s">%s</a></li>',
                 ($href === $current_page) ? ' navmenu__link--current' : '',
-                $href,
+                ($href !== $current_page) ? '/' . $href : '#',
                 $label
             );
         }
