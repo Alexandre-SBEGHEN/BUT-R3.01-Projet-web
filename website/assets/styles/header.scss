@@ -8,21 +8,29 @@
 ///
 /// @author Alexandre SBEGHEN
 
-// Importer la palette de couleurs
+// Import de scripts
 @use "palette";
+@use "fonts";
 
+// Menu de navigation
 .navmenu {
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   background-color: palette.$PALETTE-BLUE-LIGHT;
 
   // Titre du site
   &__title {
+    text-align: center;
+
     text-decoration: none;
     color: palette.$PALETTE-BLUE-DARK;
+
+    font-family: "Gasoek One", sans-serif;
+    font-size: 28pt;
   }
 
   // Liens vers les pages
@@ -39,6 +47,9 @@
   &__link {
     text-decoration: none;
     color: palette.$PALETTE-GRAY;
+
+    font-family: "Plus Jakarta Sans Variable", sans-serif;
+    font-size: 14pt;
 
     // si = page actuelle
     &--current {
