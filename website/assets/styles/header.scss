@@ -1,0 +1,49 @@
+/// header.scss
+///
+/// Style du header des pages.
+///
+/// Permet de mettre en forme le menu
+/// de navigation qui sera présent sur
+/// toutes les pages du site web.
+///
+/// @author Alexandre SBEGHEN
+
+// Importer la palette de couleurs
+@use "palette";
+
+.navmenu {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: palette.$PALETTE-BLUE-LIGHT;
+
+  // Titre du site
+  &__title {
+    text-decoration: none;
+    color: palette.$PALETTE-BLUE-DARK;
+  }
+
+  // Liens vers les pages
+  &__links {
+    padding: 1.25rem 1.75rem;
+    border-radius: 2rem;
+    display: flex;
+    gap: 1.5rem;
+
+    background-color: palette.$PALETTE-WHITE;
+  }
+
+  // Lien vers une page
+  &__link {
+    text-decoration: none;
+    color: palette.$PALETTE-GRAY;
+
+    // si = page actuelle
+    &--current {
+      color: palette.$PALETTE-BLACK;
+      font-weight: bold;
+    }
+  }
+}

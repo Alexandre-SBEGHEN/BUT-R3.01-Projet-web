@@ -77,11 +77,43 @@ HTML;
      * Contient l'en-tête du de la page avec notamment
      * le menu de navigation, le logo, etc.
      *
+     * @param string $current_page Nom de la page actuelle (utilisé dans le navbar pour distinguer la page actuelle)
+     *
      * @return void
      */
-    public static function page_header(): void {
+    public static function page_header(string $current_page=''): void {
+        // Liste des liens du navbar
+        $navmenu_links = array(
+            'Home' => '',
+            'Login' => 'login',
+            'About' => 'about',
+        );
+
+        // Logo svg de amU IUT
+        $amu_iut_src = \assets\includes\init::getImagesDir() . '/header/amu_iut.svg';
+
+        // Affichage du HTML
         echo <<< HTML
     <header>
+        <nav class="navmenu">
+            <a class="navmenu__title" href="/">Cyber Cigales</a>
+            <ul class="navmenu__links">
+HTML;
+        // Insertion des liens
+        foreach ($navmenu_links as $label => $href) {
+            echo "\n\t\t\t\t";
+            echo sprintf(
+                '<li><a class="navmenu__link%s" href="/%s">%s</a></li>',
+                ($href === $current_page) ? ' navmenu__link--current' : '',
+                $href,
+                $label
+            );
+        }
+        echo <<< HTML
+
+            </ul>
+            <a href="https://iut.univ-amu.fr/"><img alt="amU IUT" src="$amu_iut_src" loading="lazy"></a>
+        </nav>
     </header>
 
 HTML;
