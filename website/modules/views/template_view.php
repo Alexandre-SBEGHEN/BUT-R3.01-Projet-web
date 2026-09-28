@@ -156,7 +156,7 @@ HTML;
         foreach ($footer_links as $label => $href) {
             echo "\n\t\t\t\t";
             echo sprintf(
-                '<li><a class="footer__link footer__text" href="%s">%s</a><li>',
+                '<li class="footer__item"><a class="footer__link footer__text" href="%s">%s</a></li>',
                 $href,
                 $label
             );
