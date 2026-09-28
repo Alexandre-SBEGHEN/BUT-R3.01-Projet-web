@@ -43,14 +43,12 @@
   // Conteneur des liens
   &__links {
     display: flex;
-    //gap: 0.75rem;
+  }
 
-    /*
-    li + li::before {
-      content: "—";
-      padding: 0 0.5rem;
-    }
-    */
+  // Séparation entre les liens
+  &__item + &__item::before {
+    content: "—";
+    padding: 0 0.5rem;
   }
 
   // Lien
@@ -61,11 +59,6 @@
     &:hover {
       text-decoration: underline;
     }
-  }
-
-  &__item + &__item::before {
-    content: "—";
-    padding: 0 0.5rem;
   }
 
   // Texte
