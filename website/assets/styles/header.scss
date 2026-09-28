@@ -63,6 +63,7 @@
       font-weight: bold;
     }
 
+    // Afficher contour si la souris est dessus
     &:hover {
       background-color: palette.$PALETTE-GRAY-LIGHT;
     }
