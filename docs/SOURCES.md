@@ -1,5 +1,10 @@
 # Sources utilisées dans le projet
 
+## Polices d'écriture
+
+- [**Gasoek One**](https://fonts.google.com/specimen/Gasoek+One)
+- [**Plus Jakarta Sans**](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
+
 ## CSS
 
 - [**CSS Reset**](https://meyerweb.com/eric/tools/css/reset/) : Utilisé pour supprimer ou uniformiser les marges, espacements et tailles de police par défaut imposés par les navigateurs web
