@@ -133,6 +133,7 @@ HTML;
             'Accueil' => '/',
             'A propos' => '/about',
             'Mentions légales' => '/legal-notice',
+            'Données personnelles' => '/personnal-data',
             'Contact' => 'mailto:cyber-cigales@alwaysdata.net',
         );
 
