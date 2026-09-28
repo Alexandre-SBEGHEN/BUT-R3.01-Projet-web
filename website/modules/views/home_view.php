@@ -22,7 +22,7 @@ class home_view {
         template_view::html_begin(
             'Cyber Cigales',
             'Un Escape Game numérique pour apprendre à protéger tes données',
-            ['reset.css', 'header.css'],
+            ['reset.css', 'header.css', 'footer.css'],
         );
         template_view::page_header();
         echo <<< HTML
