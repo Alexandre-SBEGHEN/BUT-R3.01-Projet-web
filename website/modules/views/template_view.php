@@ -84,13 +84,13 @@ HTML;
     public static function page_header(string $current_page=''): void {
         // Liste des liens du navbar
         $navmenu_links = array(
-            'Home' => '',
-            'Login' => 'login',
-            'About' => 'about',
+            'Accueil' => '',
+            'Connexion' => 'login',
+            'A propos' => 'about',
         );
 
         // Logo svg de amU IUT
-        $amu_iut_src = \assets\includes\init::getImagesDir() . '/header/amu_iut.svg';
+        $amu_iut_src = \assets\includes\init::getImagesDir() . '/header/amu_iut_blue_dark.svg';
 
         // Affichage du HTML
         echo <<< HTML
@@ -112,7 +112,7 @@ HTML;
         echo <<< HTML
 
             </ul>
-            <a href="https://iut.univ-amu.fr/"><img alt="amU IUT" src="$amu_iut_src" loading="lazy"></a>
+            <a href="https://iut.univ-amu.fr/"><img alt="amU IUT" src="$amu_iut_src" width="258" height="48" loading="lazy"></a>
         </nav>
     </header>
 
@@ -128,8 +128,43 @@ HTML;
      * @return void
      */
     public static function page_footer(): void {
+        // Liste des liens à insérer
+        $footer_links = array(
+            'Accueil' => '/',
+            'A propos' => '/about',
+            'Mentions légales' => '/legal-notice',
+            'Contact' => 'mailto:cyber-cigales@alwaysdata.net',
+        );
+
+        // Logo svg de amU IUT
+        $cyber_cigales_src = \assets\includes\init::getImagesDir() . '/footer/cyber_cigales_black.svg';
+        $amu_iut_src = \assets\includes\init::getImagesDir() . '/header/amu_iut_black.svg';
+
         echo <<< HTML
     <footer>
+        <div class="footer">
+            <div class="footer__strip"></div>
+            <ul class="footer__logos">
+                <li class="footer__logo"><a href="/"><img alt="Cyber Cigales" src="$cyber_cigales_src" width="205" height="128" loading="lazy"></a></li>
+                <li class="footer__logo"><a href="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web"><img alt="GitHub Repo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="48" height="48" loading="lazy"></a></li>
+                <li class="footer__logo"><a href="https://iut.univ-amu.fr/"><img alt="amU IUT" src="$amu_iut_src" width="258" height="48" loading="lazy"></a></li>
+            </ul>
+            <ul class="footer__links">
+HTML;
+        // Insertion des liens
+        foreach ($footer_links as $label => $href) {
+            echo "\n\t\t\t\t";
+            echo sprintf(
+                '<li><a class="footer__link footer__text" href="%s">%s</a><li>',
+                $href,
+                $label
+            );
+        }
+        echo <<< HTML
+
+            </ul>
+            <p class="footer__text">©2026 - Cyber Cigales</p>
+        </div>
     </footer>
 
 HTML;

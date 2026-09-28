@@ -35,10 +35,10 @@
 
   // Conteneur vers les liens
   &__links {
-    padding: 1.25rem 1.75rem;
+    padding: 1.25rem 1rem;
     border-radius: 2rem;
     display: flex;
-    gap: 1.5rem;
+    gap: 0.25rem;
 
     background-color: palette.$PALETTE-WHITE;
   }
@@ -51,10 +51,20 @@
     font-family: "Plus Jakarta Sans Variable", sans-serif;
     font-size: 14pt;
 
+    padding: 0.5rem 1rem;
+    background-color: #FFFFFF;
+    border-radius: 2rem;
+
+    transition: ease-in-out 200ms;
+
     // si = page actuelle
     &--current {
       color: palette.$PALETTE-BLACK;
       font-weight: bold;
+    }
+
+    &:hover {
+      background-color: palette.$PALETTE-GRAY-LIGHT;
     }
   }
 }

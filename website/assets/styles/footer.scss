@@ -1,0 +1,65 @@
+/// footer.scss
+///
+/// Style du footer des pages.
+///
+/// Permet de mettre en forme la
+/// section des informations du site
+/// (mentions légales, politiques, etc)
+///
+/// @author Alexandre SBEGHEN
+
+// Import de scripts
+@use "palette";
+@use "fonts";
+
+// Footer
+.footer {
+  padding-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  background-color: palette.$PALETTE-BEIGE;
+
+  // Bande
+  &__strip {
+    width: 100%;
+    height: 168px;
+    background-image: url("/assets/images/footer/strip.svg");
+    background-repeat: repeat-x;
+
+    padding-bottom: 2rem;
+  }
+
+  // Conteneur des logos
+  &__logos {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+  }
+
+  // Conteneur des liens
+  &__links {
+    display: flex;
+    gap: 0.67rem; // sixseven
+  }
+
+  // Lien
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Texte
+  &__text {
+    font-family: "Plus Jakarta Sans Variable", sans-serif;
+    font-size: 12pt;
+
+    color: palette.$PALETTE-BLACK;
+  }
+}
