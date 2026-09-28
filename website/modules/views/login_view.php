@@ -18,13 +18,13 @@ class login_view {
 
         echo <<< HTML
 <div class="container">
-    <h2>Connexion</h2>
+    <h1>Connexion</h1>
     <form action="login" method="POST">
-        <input type="text" name="username" placeholder="Nom d'utilisateur" >
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
         <br>
-        <input type="email" name="mail" placeholder="email" >
+        <input type="email" name="mail" placeholder="email" required>
         <br>
-        <input type="password" name="password" placeholder="Mot de passe" >
+        <input type="password" name="password" placeholder="Mot de passe" required>
         <br>
         <button type="submit" name="login">Se connecter</button>
     </form>
