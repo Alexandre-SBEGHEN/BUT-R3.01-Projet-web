@@ -18,6 +18,7 @@ class init {
     private static string $ROOT_DIR;
     private static string $IMAGES_DIR;
     private static string $CSS_DIR;
+    private static ?\PDO $pdo = null;
 
     /**
      * Pseudo-constructeur de init.
@@ -68,18 +69,24 @@ class init {
         return self::$CSS_DIR;
     }
 
-    public static function getPDO():null
+    public static function getPDO(): \PDO
     {
-        $dotenv = Dotenv\Dotenv::createImmutable();
-        $servername = getenv('serverName');
-        $username = getenv('userName');
-        $password = getenv('password');
-        try {
-            $connexion = new PDO("mysql:host=$servername;dbname=dbUser", $username, $password);
-        } catch (\PDOException $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-}
+        if (self::$pdo === null) {
+            $dotenv = \Dotenv\Dotenv::createImmutable(self::$ROOT_DIR);
+            $dotenv->load();
 
+            $servername = getenv('serverName');
+            $dbname = getenv('dbName');
+            $username = getenv('userName');
+            $password = getenv('password');
+
+            try {
+                self::$pdo = new \PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            } catch (\PDOException $e) {
+                die('Erreur : ' . $e->getMessage());
+            }
+        }
+        return self::$pdo;
+    }
 
 }
