@@ -70,7 +70,7 @@ class init {
 
     public static function getPDO():null
     {
-        $dotenv = Dotenv\Dotenv::createImmutable(.env);
+        $dotenv = Dotenv\Dotenv::createImmutable();
         $servername = getenv('serverName');
         $username = getenv('userName');
         $password = getenv('password');
