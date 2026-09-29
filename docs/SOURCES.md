@@ -2,6 +2,8 @@
 
 ## Polices d'écriture
 
+Les polices suivantes sont utilisées dans le site web. Elles sont libre d'utilisation dans le cadre du projet web.
+
 - [**Gasoek One**](https://fonts.google.com/specimen/Gasoek+One)
 - [**Plus Jakarta Sans**](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
 
