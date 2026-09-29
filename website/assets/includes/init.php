@@ -67,4 +67,14 @@ class init {
     public static function getCSSDir(): string {
         return self::$CSS_DIR;
     }
+
+    try{
+        $connexion = new PDO("mysql:host=$servername;dbname=dbUser",$username, $password);
+    } catch (\PDOException $e) {
+    // En cas d'erreur, on affiche un message et on arrête tout
+    die('Erreur : ' . $e->getMessage());
+}
+}
+
+
 }
