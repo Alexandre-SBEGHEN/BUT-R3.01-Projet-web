@@ -70,12 +70,15 @@ class init {
 
     public static function getPDO():null
     {
+        $dotenv = Dotenv\Dotenv::createImmutable(.env);
+        $servername = getenv('serverName');
+        $username = getenv('userName');
+        $password = getenv('password');
         try {
             $connexion = new PDO("mysql:host=$servername;dbname=dbUser", $username, $password);
         } catch (\PDOException $e) {
             die('Erreur : ' . $e->getMessage());
         }
-    }
 }
 
 
