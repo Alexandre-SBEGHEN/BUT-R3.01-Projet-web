@@ -1,0 +1,71 @@
+/// header.scss
+///
+/// Style du header des pages.
+///
+/// Permet de mettre en forme le menu
+/// de navigation qui sera présent sur
+/// toutes les pages du site web.
+///
+/// @author Alexandre SBEGHEN
+
+// Import de scripts
+@use "palette";
+@use "fonts";
+
+// Menu de navigation
+.navmenu {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  background-color: palette.$PALETTE-BLUE-LIGHT;
+
+  // Titre du site
+  &__title {
+    text-align: center;
+
+    text-decoration: none;
+    color: palette.$PALETTE-BLUE-DARK;
+
+    font-family: "Gasoek One", sans-serif;
+    font-size: 28pt;
+  }
+
+  // Conteneur vers les liens
+  &__links {
+    padding: 1.25rem 1rem;
+    border-radius: 2rem;
+    display: flex;
+    gap: 0.25rem;
+
+    background-color: palette.$PALETTE-WHITE;
+  }
+
+  // Lien vers une page
+  &__link {
+    text-decoration: none;
+    color: palette.$PALETTE-GRAY;
+
+    font-family: "Plus Jakarta Sans Variable", sans-serif;
+    font-size: 14pt;
+
+    padding: 0.5rem 1rem;
+    background-color: #FFFFFF;
+    border-radius: 2rem;
+
+    transition: ease-in-out 200ms;
+
+    // si = page actuelle
+    &--current {
+      color: palette.$PALETTE-BLACK;
+      font-weight: bold;
+    }
+
+    // Afficher contour si la souris est dessus
+    &:hover {
+      background-color: palette.$PALETTE-GRAY-LIGHT;
+    }
+  }
+}

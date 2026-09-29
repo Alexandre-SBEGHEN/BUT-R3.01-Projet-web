@@ -16,6 +16,7 @@ namespace assets\includes;
 
 class init {
     private static string $ROOT_DIR;
+    private static string $IMAGES_DIR;
     private static string $CSS_DIR;
 
     /**
@@ -26,10 +27,12 @@ class init {
      * dans le site web.
      *
      * @param string $ROOT_DIR Le répertoire de la racine du site web.
+     * @param string $IMAGES_DIR Le répertoire des images
      * @param string $CSS_DIR Le répertoire des feuilles de style <code>.css</code>
      */
-    public static function init(string $ROOT_DIR, string $CSS_DIR) {
+    public static function init(string $ROOT_DIR, string $IMAGES_DIR, string $CSS_DIR) {
         self::$ROOT_DIR = $ROOT_DIR;
+        self::$IMAGES_DIR = $IMAGES_DIR;
         self::$CSS_DIR = $CSS_DIR;
     }
 
@@ -42,6 +45,16 @@ class init {
      */
     public static function getRootDir(): string {
         return self::$ROOT_DIR;
+    }
+
+    /**
+     * Permet d'obtenir sous forme de string
+     * le répertoire des images.
+     *
+     * @return string Répertoire des images
+     */
+    public static function getImagesDir(): string {
+        return self::$IMAGES_DIR;
     }
 
     /**

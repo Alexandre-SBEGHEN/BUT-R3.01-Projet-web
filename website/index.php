@@ -16,7 +16,7 @@
 // Pré-requis
 session_start();
 require_once 'assets/includes/init.php';
-\assets\includes\init::init(__DIR__, '/assets/styles');
+\assets\includes\init::init(__DIR__, '/assets/images', '/assets/styles');
 require 'assets/includes/autoloader.php';
 
 
