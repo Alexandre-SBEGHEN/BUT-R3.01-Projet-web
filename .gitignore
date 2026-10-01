@@ -5,5 +5,4 @@
 
 # Fichiers sensibles
 .env
-.env.*
 *.db.sass-cache/
