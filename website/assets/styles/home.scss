@@ -9,7 +9,7 @@
     font-family: 'Gasoek One', sans-serif;
   }
 
-  // Bandeau du haut
+  // titre
   &__intro {
     padding: 5rem 1rem;
     background-color: $PALETTE-BLUE-DARK;
@@ -39,7 +39,7 @@
     }
   }
 
-  // Section "Le principe"
+  // partie principe
   &__principe {
     padding: 4rem 1rem;
     background-color: $PALETTE-GREEN-LIGHT;
@@ -50,17 +50,17 @@
       margin-bottom: 2rem;
     }
   }
-
+  // Différentes étapes
   &__etapes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 3rem;
   }
 
   &__etape {
     width: 18rem;
-    padding: 1.5rem;
+    padding: 3rem;
     border-radius: 8px;
     background: $PALETTE-WHITE;
     border-top: 6px solid $PALETTE-GREEN-DARK;

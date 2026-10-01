@@ -27,7 +27,7 @@ class home_view {
         template_view::page_header();
         echo <<< HTML
     <main class="home">
-        <section class="home__intro">
+        <section class="home__intro"> 
             <h1>Bienvenue sur Cyber Cigales</h1>
             <p>Un escape game numérique pour apprendre à protéger tes données.</p>
             <a class="home__button" href="/login">Jouer</a>
