@@ -72,7 +72,7 @@ class init {
     public static function getPDO(): \PDO
     {
         if (self::$pdo === null) {
-            $dotenv = \Dotenv\Dotenv::createImmutable(self::$ROOT_DIR);
+            $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
             $dotenv->load();
 
             $servername = getenv('serverName');
