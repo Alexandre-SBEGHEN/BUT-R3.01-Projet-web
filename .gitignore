@@ -6,4 +6,5 @@
 # Fichiers sensibles
 .env
 .env.*
-*.db
+*.db.sass-cache/
+wsbuilder
