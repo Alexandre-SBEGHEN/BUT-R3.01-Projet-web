@@ -1,8 +1,8 @@
-@use 'palette' as *;
+@use 'palette';
 
 .home {
   font-family: 'Plus Jakarta Sans Variable', sans-serif;
-  color: $PALETTE-BLACK;
+  color: palette.$PALETTE-BLACK;
   text-align: center;
 
   h1, h2 {
@@ -12,12 +12,12 @@
   // titre
   &__intro {
     padding: 5rem 1rem;
-    background-color: $PALETTE-BLUE-DARK;
-    color: $PALETTE-WHITE;
+    background-color: palette.$PALETTE-BLUE-DARK;
+    color: palette.$PALETTE-WHITE;
 
     h1 {
       font-size: 2.5rem;
-      color: $PALETTE-WHITE;
+      color: palette.$PALETTE-WHITE;
       margin-bottom: 1rem;
     }
 
@@ -27,26 +27,26 @@
   }
 
   &__button {
-    background: $PALETTE-WHITE;
-    color: $PALETTE-BLUE-DARK;
+    background: palette.$PALETTE-WHITE;
+    color: palette.$PALETTE-BLUE-DARK;
     padding: 0.8rem 2rem;
     border-radius: 8px;
     font-weight: 700;
     text-decoration: none;
 
     &:hover {
-      background: $PALETTE-BLUE-LIGHT;
+      background: palette.$PALETTE-BLUE-LIGHT;
     }
   }
 
   // partie principe
   &__principe {
     padding: 4rem 1rem;
-    background-color: $PALETTE-GREEN-LIGHT;
+    background-color: palette.$PALETTE-GREEN-LIGHT;
 
     h2 {
       font-size: 2rem;
-      color: $PALETTE-GREEN-DARK;
+      color: palette.$PALETTE-GREEN-DARK;
       margin-bottom: 2rem;
     }
   }
@@ -62,12 +62,12 @@
     width: 18rem;
     padding: 3rem;
     border-radius: 8px;
-    background: $PALETTE-WHITE;
-    border-top: 6px solid $PALETTE-GREEN-DARK;
+    background: palette.$PALETTE-WHITE;
+    border-top: 6px solid palette.$PALETTE-GREEN-DARK;
 
     h3 {
       font-weight: 700;
-      color: $PALETTE-GREEN-DARK;
+      color: palette.$PALETTE-GREEN-DARK;
       margin-bottom: 0.5rem;
     }
   }
