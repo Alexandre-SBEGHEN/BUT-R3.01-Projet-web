@@ -80,12 +80,11 @@ class init {
             $password = $env['database']['password'];
 
             try {
-                self::$pdo = new \PDO('mysql:host=$servername;dbname=$dbname', $username, $password);
+                self::$pdo = new \PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             } catch (\PDOException $e) {
                 die('Erreur : ' . $e->getMessage());
             }
         }
         return self::$pdo;
     }
-
 }
