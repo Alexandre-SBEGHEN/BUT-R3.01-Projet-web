@@ -72,16 +72,15 @@ class init {
     public static function getPDO(): \PDO
     {
         if (self::$pdo === null) {
-            $dotenv = \Dotenv\Dotenv::createImmutable(self::$ROOT_DIR);
-            $dotenv->load();
+            $env = parse_ini_file(self::$ROOT_DIR . '/../env.ini', true);
 
-            $servername = getenv('DB_HOST');
-            $dbname = getenv('DB_NAME');
-            $username = getenv('DB_LOGIN');
-            $password = getenv('DB_PWD');
+            $servername = $env['database']['host'];
+            $dbname = $env['database']['dbname'];
+            $username = $env['database']['username'];
+            $password = $env['database']['password'];
 
             try {
-                self::$pdo = new \PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                self::$pdo = new \PDO('mysql:host=$servername;dbname=$dbname', $username, $password);
             } catch (\PDOException $e) {
                 die('Erreur : ' . $e->getMessage());
             }
