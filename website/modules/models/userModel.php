@@ -101,7 +101,7 @@ class userModel
     public function createToken(int $id): string|false {
         $pdo = init::getPDO();
         $token = bin2hex(random_bytes(16));
-        $sql = 'UPDATE utilisateur SET token = :token, token_date_creation = NOW() WHERE utilisateur_id = :id';
+        $sql = 'UPDATE utilisateur SET token = :token, token_date_expiration = DATE_ADD(NOW(), INTERVAL 10 MINUTE) WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue('id', $id, PDO::PARAM_INT);
         $stmt->bindValue('token', $token, PDO::PARAM_STR);
@@ -117,7 +117,7 @@ class userModel
 
     public function findToken(string $token): ?int {
         $pdo = init::getPDO();
-        $sql = 'SELECT id FROM utilisateur WHERE token = :token AND token_date_expiration >= NOW()';
+        $sql = 'SELECT utilisateur_id FROM utilisateur WHERE token = :token AND token_date_expiration >= NOW()';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue('token', $token, PDO::PARAM_STR);
 
@@ -137,7 +137,7 @@ class userModel
 
     public function deleteToken(int $id): bool {
         $pdo = init::getPDO();
-        $sql = 'UPDATE utilisateur SET token = null, token_date_creation = null WHERE utilisateur_id = :id';
+        $sql = 'UPDATE utilisateur SET token = null, token_date_expiration = null WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue('id', $id, PDO::PARAM_INT);
 
