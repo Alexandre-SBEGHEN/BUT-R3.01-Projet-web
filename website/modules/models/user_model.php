@@ -1,12 +1,12 @@
 <?php
 
-namespace modules\model;
+namespace modules\models;
 
 use model\init;
 use model\PDOException;
 use PDO;
 
-class userModel
+class user_model
 {
     public function create(string $nom, string $prenom, string $email, string $password): bool {
         $pdo = init::getPDO();
