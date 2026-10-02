@@ -5,4 +5,8 @@
 
 # Fichiers sensibles
 .env
-*.db.sass-cache/
+.env.*
+*.db
+
+# Variables d'environnement
+env.ini

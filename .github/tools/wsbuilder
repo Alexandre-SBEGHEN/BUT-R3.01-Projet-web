@@ -22,7 +22,7 @@ readonly OPTION_JS_MINIFY="--js-minify" # Minifier les scripts JS
 readonly BYPASS_INDEX_VERIFICATION=0 # Ignorer la vérification de l'index
 readonly BYPASS_SASS_VERIFICATION=0 # Ignorer l'existence de Sass
 
-readonly BUILD_IGNORE=("$(basename APP_NAME)" "build" "README.md") # Ignorer certains fichiers lors du build (Peut être agrandi)
+readonly BUILD_IGNORE=("$(basename APP_NAME)" "build" "README.md" "env.ini" "env.model.ini") # Ignorer certains fichiers lors du build (Peut être agrandi)
 readonly BUILD_COPY_HIDDEN=(".htaccess") # Fichiers masqués à copier quand-même
 
 #
