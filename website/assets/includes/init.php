@@ -40,7 +40,6 @@ class init {
         self::$CSS_DIR = $CSS_DIR;
 
         // Initialisation de PDO
-        self::$databaseConnected = false;
         $env = parse_ini_file(self::$ROOT_DIR . '/../env.ini', true);
 
         $servername = $env['database']['host'];
@@ -53,7 +52,7 @@ class init {
             self::$databaseConnected = true;
         } catch (\PDOException $e) {
             // die('Erreur : ' . $e->getMessage());
-
+            self::$databaseConnected = false;
         }
     }
 
