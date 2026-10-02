@@ -18,7 +18,9 @@ class init {
     private static string $ROOT_DIR;
     private static string $IMAGES_DIR;
     private static string $CSS_DIR;
-    private static ?\PDO $pdo = null;
+    private static ?\PDO $PDO;
+
+    private static bool $databaseConnected;
 
     /**
      * Pseudo-constructeur de init.
@@ -32,9 +34,27 @@ class init {
      * @param string $CSS_DIR Le répertoire des feuilles de style <code>.css</code>
      */
     public static function init(string $ROOT_DIR, string $IMAGES_DIR, string $CSS_DIR) {
+        // Initialisation des variables globales
         self::$ROOT_DIR = $ROOT_DIR;
         self::$IMAGES_DIR = $IMAGES_DIR;
         self::$CSS_DIR = $CSS_DIR;
+
+        // Initialisation de PDO
+        self::$databaseConnected = false;
+        $env = parse_ini_file(self::$ROOT_DIR . '/../env.ini', true);
+
+        $servername = $env['database']['host'];
+        $dbname = $env['database']['dbname'];
+        $username = $env['database']['username'];
+        $password = $env['database']['password'];
+
+        try {
+            self::$PDO = new \PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            self::$databaseConnected = true;
+        } catch (\PDOException $e) {
+            // die('Erreur : ' . $e->getMessage());
+
+        }
     }
 
     /**
@@ -69,22 +89,23 @@ class init {
         return self::$CSS_DIR;
     }
 
-    public static function getPDO(): \PDO
-    {
-        if (self::$pdo === null) {
-            $env = parse_ini_file(self::$ROOT_DIR . '/../env.ini', true);
+    /**
+     * Permet de savoir si l'on est connecté
+     * à la base de données.
+     *
+     * @return bool Connecté à la BD ou non.
+     */
+    public static function isDatabaseConnected(): bool {
+        return self::$databaseConnected;
+    }
 
-            $servername = $env['database']['host'];
-            $dbname = $env['database']['dbname'];
-            $username = $env['database']['username'];
-            $password = $env['database']['password'];
-
-            try {
-                self::$pdo = new \PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            } catch (\PDOException $e) {
-                die('Erreur : ' . $e->getMessage());
-            }
-        }
-        return self::$pdo;
+    /**
+     * Permet de récupérer l'instance PDO pour les
+     * échanges avec la base de données.
+     *
+     * @return \PDO Instance PDO, null si pas connecté.
+     */
+    public static function getPDO(): \PDO {
+        return self::$PDO;
     }
 }
