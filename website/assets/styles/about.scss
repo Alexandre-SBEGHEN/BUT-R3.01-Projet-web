@@ -1,0 +1,71 @@
+@use 'palette' as *;
+
+.about {
+  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+  color: $PALETTE-BLACK;
+  text-align: center;
+
+  h1, h2, h3 {
+    font-family: 'Gasoek One', sans-serif;
+  }
+
+  &__intro {
+    padding: 5rem 1rem;
+    background-color: $PALETTE-BLUE-DARK;
+    color: $PALETTE-WHITE;
+
+    h1 {
+      font-size: 2.5rem;
+      color: $PALETTE-WHITE;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      max-width: 45rem;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__equipe {
+    padding: 4rem 1rem;
+    background-color: $PALETTE-BEIGE;
+
+    h2 {
+      font-size: 2rem;
+      color: $PALETTE-BLUE-DARK;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      color: $PALETTE-GREEN-DARK;
+      margin: 2.5rem 0 1rem;
+    }
+
+    p {
+      max-width: 45rem;
+      margin: 0 auto 1rem;
+      line-height: 1.6;
+      color: $PALETTE-GRAY;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      width: 14rem;
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      background: $PALETTE-WHITE;
+      border-top: 6px solid $PALETTE-GREEN-DARK;
+      font-weight: 700;
+    }
+  }
+}
