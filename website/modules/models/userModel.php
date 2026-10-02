@@ -6,6 +6,17 @@ use assets\includes\init;
 use PDO;
 use PDOException;
 
+
+/* Ceci est le userModel avec de nombreuses fonctions permettant d'interagir avec la base de donnée.
+ * create() permet de rajouter un utilisateur.
+ * findEmail() permet de retrouver toutes les données sur un utilisateur sous forme de tableau.
+ * findID() pareil que findEmail() avec ID.
+ * changePassword() permet de changer le mot de passe d'un utilisateur avec son ID.
+ * deleteUser() permet de supprimer un utilisateur et toutes ces données de la base en entrant son id.
+ * createToken() permet de créer un token et token_date_expiration, ces derniers ont des date d'expiration qui sont valide 10mn.
+ * findToken() permet de vérifier si un token existe et est toujours valide et renvoie l'id de l'utilisateur.
+ * deleteToken() permet d'effacer le token relier un id.
+ */
 class userModel
 {
     public function create(string $nom, string $prenom, string $email, string $password): bool {
