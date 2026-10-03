@@ -35,6 +35,9 @@ try {
         case 'login':
             (new \modules\controllers\login_controller())->execute();
             break;
+        case 'forgotpassword':
+            (new \modules\controllers\forgotpassword_controller())->execute();
+            break;
         default:
             throw new Exception('Page introuvable');
     }
