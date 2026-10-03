@@ -6,7 +6,7 @@ use model\init;
 use model\PDOException;
 use PDO;
 
-class user_model
+class userModel
 {
     public function create(string $nom, string $prenom, string $email, string $password): bool {
         $pdo = init::getPDO();
@@ -47,108 +47,21 @@ class user_model
 
     }
 
-    public function findID(int $id): ?array{
-        $pdo = init::getPDO();
-        $sql = 'SELECT * FROM utilisateur WHERE utilisateur_id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('id', $id, PDO::PARAM_INT);
-
-        try
-        {
-            $stmt->execute(); // Exécution de la requête.
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result ?: null;
-        }
-        catch (PDOException $e)
-        {
-            error_log('Erreur findID : ' . $e->getMessage());
-            return null;
-        }
-
-
-    }
-
     public function changePassword(int $id, string $password): bool {
         $pdo = init::getPDO();
         $sql = 'UPDATE utilisateur SET mot_de_passe = :mot_de_passe WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('id', $id, PDO::PARAM_INT);
         $stmt->bindValue('mot_de_passe', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
 
         try {
             return $stmt->execute();
         } catch (PDOException $e) {
-            error_log('Erreur modification mot de passe : ' . $e->getMessage());
-            return false;
-        }
-    }
-
-    public function deleteUser(int $id): bool {
-        $pdo = init::getPDO();
-        $sql = 'DELETE FROM utilisateur WHERE utilisateur_id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('id', $id, PDO::PARAM_INT);
-
-        try {
-            return $stmt->execute();
-        } catch (PDOException $e) {
-            error_log('Erreur destruction utilisateur : ' . $e->getMessage());
+            error_log('Erreur modification mot de passe' . $e->getMessage());
             return false;
         }
     }
 
 
-    public function createToken(int $id): string|false {
-        $pdo = init::getPDO();
-        $token = bin2hex(random_bytes(16));
-        $sql = 'UPDATE utilisateur SET token = :token, token_date_expiration = DATE_ADD(NOW(), INTERVAL 10 MINUTE) WHERE utilisateur_id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('id', $id, PDO::PARAM_INT);
-        $stmt->bindValue('token', $token, PDO::PARAM_STR);
 
-        try {
-            $stmt->execute();
-            return $token;
-        } catch (PDOException $e) {
-            error_log('Erreur création token : ' . $e->getMessage());
-            return false;
-        }
-    }
-
-    public function findToken(string $token): ?int {
-        $pdo = init::getPDO();
-        $sql = 'SELECT utilisateur_id FROM utilisateur WHERE token = :token AND token_date_expiration >= NOW()';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('token', $token, PDO::PARAM_STR);
-
-        try
-        {
-            $stmt->execute();
-            $id = $stmt->fetchColumn();
-            return $id !== false ? (int) $id : null;
-        }
-        catch (PDOException $e)
-        {
-            error_log('Erreur findToken : ' . $e->getMessage());
-            return null;
-        }
-
-    }
-
-    public function deleteToken(int $id): bool {
-        $pdo = init::getPDO();
-        $sql = 'UPDATE utilisateur SET token = null, token_date_expiration = null WHERE utilisateur_id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('id', $id, PDO::PARAM_INT);
-
-        try {
-            return $stmt->execute();
-        } catch (PDOException $e) {
-            error_log('Erreur destruction token : ' . $e->getMessage());
-            return false;
-        }
-
-
-    }
 
 }
