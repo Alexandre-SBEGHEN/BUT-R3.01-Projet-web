@@ -7,3 +7,6 @@
 .env
 .env.*
 *.db
+
+# Variables d'environnement
+env.ini
