@@ -20,8 +20,6 @@ class login_view {
 <div class="container">
     <h1>Connexion</h1>
     <form action="login" method="POST">
-        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-        <br>
         <input type="email" name="mail" placeholder="email" required>
         <br>
         <input type="password" name="password" placeholder="Mot de passe" required>
