@@ -35,7 +35,7 @@ class UserRepository
         try {
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result ? $this->hydrate($result) : null;
+            return $result ? $this->createUserObjet($result) : null;
         } catch (PDOException $e) {
             error_log('Erreur findEmail : ' . $e->getMessage());
             return null;
@@ -51,7 +51,7 @@ class UserRepository
         try {
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result ? $this->hydrate($result) : null;
+            return $result ? $this->createUserObjet($result) : null;
         } catch (PDOException $e) {
             error_log('Erreur findID : ' . $e->getMessage());
             return null;
