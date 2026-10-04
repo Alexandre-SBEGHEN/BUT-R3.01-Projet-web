@@ -23,7 +23,7 @@ class template_view {
      *
      * @param string $title Titre de la page.
      * @param string $description Meta-description de la page.
-     * @param string $css_path [Facultatif] Lien vers les styles CSS.
+     * @param string $css_names [Facultatif] Lien vers les styles CSS.
      * @return void
      */
     public static function html_begin(string $title, string $description, array $css_names = []): void {
