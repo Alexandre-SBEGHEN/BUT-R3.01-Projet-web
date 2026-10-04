@@ -2,11 +2,11 @@
 
 namespace modules\models;
 
-use model\init;
-use model\PDOException;
+use assets\includes\init;
+use PDOException;
 use PDO;
 
-class userModel
+class user_model
 {
     public function create(string $nom, string $prenom, string $email, string $password): bool {
         $pdo = init::getPDO();
@@ -34,7 +34,7 @@ class userModel
 
         try
         {
-            $stmt->execute(); // Exécution de la requête.
+            $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result ?: null;
         }
@@ -43,8 +43,6 @@ class userModel
             error_log('Erreur findEmail : ' . $e->getMessage());
             return null;
         }
-
-
     }
 
     public function changePassword(int $id, string $password): bool {
@@ -52,6 +50,7 @@ class userModel
         $sql = 'UPDATE utilisateur SET mot_de_passe = :mot_de_passe WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue('mot_de_passe', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $stmt->bindValue('id', $id, PDO::PARAM_INT);
 
         try {
             return $stmt->execute();
@@ -60,8 +59,4 @@ class userModel
             return false;
         }
     }
-
-
-
-
 }
