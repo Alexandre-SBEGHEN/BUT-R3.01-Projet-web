@@ -39,14 +39,19 @@ class init {
         self::$IMAGES_DIR = $IMAGES_DIR;
         self::$CSS_DIR = $CSS_DIR;
 
-        // Initialisation de PDO
-        $env = parse_ini_file(self::$ROOT_DIR . '/../env.ini', true);
+        // Parsing du env.ini
+        if (!($env = parse_ini_file(self::$ROOT_DIR . '/../env.ini', true))) {
+            self::$databaseConnected = false;
+            return;
+        }
 
+        // Récupération des informations
         $servername = $env['database']['host'];
         $dbname = $env['database']['dbname'];
         $username = $env['database']['username'];
         $password = $env['database']['password'];
 
+        // Initialisation de PDO
         try {
             self::$PDO = new \PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             self::$databaseConnected = true;
