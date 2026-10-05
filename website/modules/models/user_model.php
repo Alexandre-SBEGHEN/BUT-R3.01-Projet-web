@@ -1,62 +1,56 @@
 <?php
+/**
+ * user_model.php
+ *
+ * Entité représentant un utilisateur.
+ *
+ * @author Alexandre SBEGHEN
+ */
 
 namespace modules\models;
 
-use assets\includes\init;
-use PDOException;
-use PDO;
-
 class user_model
 {
-    public function create(string $nom, string $prenom, string $email, string $password): bool {
-        $pdo = init::getPDO();
-        $sql = 'INSERT INTO utilisateur (nom, prenom, mot_de_passe, adresse_mail, date_creation) 
-                VALUES (:nom, :prenom, :mot_de_passe, :adresse_mail, NOW())';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('nom', $nom, PDO::PARAM_STR);
-        $stmt->bindValue('prenom', $prenom, PDO::PARAM_STR);
-        $stmt->bindValue('mot_de_passe', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $stmt->bindValue('adresse_mail', $email, PDO::PARAM_STR);
+    public function __construct(
+        private ?int $id,
+        private string $nom,
+        private string $prenom,
+        private string $mot_de_passe,
+        private string $adresse_mail,
+        private string $date_creation,
+        private ?string $token = null,
+        private ?string $token_date_expiration = null
+    ) {}
 
-        try {
-            return $stmt->execute();
-        } catch (PDOException $e) {
-            error_log('Erreur create utilisateur : ' . $e->getMessage());
-            return false;
-        }
+    public function getId(): ?int {
+        return $this->id;
     }
 
-    public function findEmail(string $email): ?array{
-        $pdo = init::getPDO();
-        $sql = 'SELECT * FROM utilisateur WHERE adresse_mail = :email';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('email', $email, PDO::PARAM_STR);
-
-        try
-        {
-            $stmt->execute();
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result ?: null;
-        }
-        catch (PDOException $e)
-        {
-            error_log('Erreur findEmail : ' . $e->getMessage());
-            return null;
-        }
+    public function getNom(): string {
+        return $this->nom;
     }
 
-    public function changePassword(int $id, string $password): bool {
-        $pdo = init::getPDO();
-        $sql = 'UPDATE utilisateur SET mot_de_passe = :mot_de_passe WHERE utilisateur_id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue('mot_de_passe', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $stmt->bindValue('id', $id, PDO::PARAM_INT);
+    public function getPrenom(): string {
+        return $this->prenom;
+    }
 
-        try {
-            return $stmt->execute();
-        } catch (PDOException $e) {
-            error_log('Erreur modification mot de passe' . $e->getMessage());
-            return false;
-        }
+    public function getMotDePasse(): string {
+        return $this->mot_de_passe;
+    }
+
+    public function getAdresseMail(): string {
+        return $this->adresse_mail;
+    }
+
+    public function getDateCreation(): string {
+        return $this->date_creation;
+    }
+
+    public function getToken(): ?string {
+        return $this->token;
+    }
+
+    public function getTokenDateExpiration(): ?string {
+        return $this->token_date_expiration;
     }
 }
