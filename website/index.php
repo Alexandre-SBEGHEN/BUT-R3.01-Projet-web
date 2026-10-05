@@ -12,7 +12,12 @@
  * @author MANKAI Adam
  * @author SBEGHEN Alexandre
  */
-
+if (PHP_SAPI === 'cli-server') {
+    $path = __DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    if ($path !== __DIR__ . '/' && file_exists($path) && !is_dir($path)) {
+        return false;
+    }
+}
 
 // Pré-requis
 session_start();
