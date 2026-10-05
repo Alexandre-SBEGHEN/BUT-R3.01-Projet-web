@@ -26,7 +26,7 @@ class login_view {
         <br>
         <button type="submit" name="login">Se connecter</button>
     </form>
-    <p>Pas encore de compte ? <a href="">Inscription</a></p>
+    <p>Pas encore de compte ? <a href="register">Inscription</a></p>
 </div>
 HTML;
 
