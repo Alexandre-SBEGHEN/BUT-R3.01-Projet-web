@@ -10,8 +10,35 @@ class sitemap_view {
             ['reset.css', 'fonts.css', 'header.css', 'footer.css']
         );
         template_view::page_header('sitemap');
+
         echo <<< HTML
-    <h1>Plan du site</h1>
+    <main class="sitemap">
+        <h1 class="sitemap__title">Plan du site</h1>
+        <ul class="sitemap__links">
+HTML;
+        // Liens
+        $links = array(
+            'Accueil' => '',
+            'Connexion' => 'login',
+            'A propos' => 'about',
+            'Mentions légales' => 'legal-notice',
+            'Données personnelles' => 'personal-data',
+            'Plan du site' => 'sitemap',
+        );
+        foreach ($links as $label => $href) {
+            echo "\n\t\t\t";
+            echo sprintf(
+                '<li class="sitemap__link"><a class="sitemap_text" href="/%s">%s</a></li>',
+                $href,
+                $label
+            );
+        }
+
+        echo <<< HTML
+
+        </ul>
+    </main>
+
 HTML;
 
         template_view::page_footer();
