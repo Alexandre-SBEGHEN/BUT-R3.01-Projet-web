@@ -1,4 +1,11 @@
 <?php
+/**
+ * sitemap_controller.php
+ *
+ * Contrôleur de la page Plan du site.
+ *
+ * @author Alexandre SBEGHEN
+ */
 
 namespace modules\controllers;
 

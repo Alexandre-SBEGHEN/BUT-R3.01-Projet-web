@@ -1,4 +1,16 @@
 <?php
+/**
+ * sitemap_view.php
+ *
+ * Vue de la page Plan du site.
+ *
+ * Affiche sous forme de liste non hiérarchisée l'ensemble des
+ * pages du site web, afin de permettre aux utilisateurs d'accéder
+ * rapidement à n'importe quelle page sans passer par le menu
+ * de navigation.
+ *
+ * @author Alexandre SBEGHEN
+ */
 
 namespace modules\views;
 
