@@ -33,6 +33,8 @@ try {
         case 'login':
             (new \modules\controllers\login_controller())->execute();
             break;
+        case 'legal-notice':
+            (new \modules\controllers\legal_notice_controller())->execute();
         default:
             throw new Exception('Page introuvable');
     }
