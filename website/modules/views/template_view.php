@@ -132,7 +132,7 @@ HTML;
         // Liste des liens à insérer
         $footer_links = array(
             'Accueil' => '/',
-            'A propos' => '/about',
+            'Plan du site' => '/sitemap',
             'Mentions légales' => '/legal-notice',
             'Données personnelles' => '/personnal-data',
             'Contact' => 'mailto:cyber-cigales@alwaysdata.net',
