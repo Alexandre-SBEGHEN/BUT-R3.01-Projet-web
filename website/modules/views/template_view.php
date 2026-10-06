@@ -23,7 +23,7 @@ class template_view {
      *
      * @param string $title Titre de la page.
      * @param string $description Meta-description de la page.
-     * @param string $css_path [Facultatif] Lien vers les styles CSS.
+     * @param string $css_names [Facultatif] Lien vers les styles CSS.
      * @return void
      */
     public static function html_begin(string $title, string $description, array $css_names = []): void {
@@ -113,7 +113,7 @@ HTML;
         echo <<< HTML
 
             </ul>
-            <a href="https://iut.univ-amu.fr/"><img alt="amU IUT" src="$amu_iut_src" width="258" height="48" loading="lazy"></a>
+            <a href="https://iut.univ-amu.fr/" target="_blank" rel="noopener noreferrer"><img alt="amU IUT" src="$amu_iut_src" width="258" height="48" loading="lazy"></a>
         </nav>
     </header>
 
@@ -132,7 +132,7 @@ HTML;
         // Liste des liens à insérer
         $footer_links = array(
             'Accueil' => '/',
-            'A propos' => '/about',
+            'Plan du site' => '/sitemap',
             'Mentions légales' => '/legal-notice',
             'Données personnelles' => '/personnal-data',
             'Contact' => 'mailto:cyber-cigales@alwaysdata.net',
@@ -148,8 +148,8 @@ HTML;
             <div class="footer__strip"></div>
             <ul class="footer__logos">
                 <li class="footer__logo"><a href="/"><img alt="Cyber Cigales" src="$cyber_cigales_src" width="205" height="128" loading="lazy"></a></li>
-                <li class="footer__logo"><a href="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web"><img alt="GitHub Repo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="48" height="48" loading="lazy"></a></li>
-                <li class="footer__logo"><a href="https://iut.univ-amu.fr/"><img alt="amU IUT" src="$amu_iut_src" width="258" height="48" loading="lazy"></a></li>
+                <li class="footer__logo"><a href="https://github.com/Alexandre-SBEGHEN/BUT-R3.01-Projet-web" target="_blank" rel="noopener noreferrer"><img alt="GitHub Repo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="48" height="48" loading="lazy"></a></li>
+                <li class="footer__logo"><a href="https://iut.univ-amu.fr/" target="_blank" rel="noopener noreferrer"><img alt="amU IUT" src="$amu_iut_src" width="258" height="48" loading="lazy"></a></li>
             </ul>
             <ul class="footer__links">
 HTML;
