@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\model;
+namespace modules\models;
 
 use model\init;
 use model\PDOException;
