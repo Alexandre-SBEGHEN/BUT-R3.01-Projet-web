@@ -47,6 +47,9 @@ try {
         case 'sitemap':
             (new \modules\controllers\sitemap_controller())->execute();
             break;
+        case 'register':
+            (new \modules\controllers\register_controller())->execute();
+            break;
         default:
             throw new Exception('Page introuvable');
     }

@@ -26,7 +26,7 @@ class authentication_controller
             exit;
         }
 
-        $user = (new \modules\models\user_model())->findEmail($mail);
+        $user = (new \modules\models\user_model())->find_mail($mail);
 
         if ($user === null) {
             $_SESSION["error"] = "Email ou mot de passe incorrect.";
