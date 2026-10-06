@@ -38,6 +38,9 @@ try {
         case 'home':
             (new \modules\controllers\home_controller())->execute();
             break;
+        case 'about':
+            (new \modules\controllers\about_controller())->execute();
+            break;
         case 'login':
             (new \modules\controllers\login_controller())->execute();
             break;
