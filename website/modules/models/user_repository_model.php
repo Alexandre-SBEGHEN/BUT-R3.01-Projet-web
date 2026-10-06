@@ -1,4 +1,20 @@
 <?php
+/**
+ * user_repository_model.php
+ *
+ * Gère toutes les interactions avec la table utilisateur.
+ *
+ * create() permet de rajouter un utilisateur.
+ * find_email() permet de retrouver un utilisateur (user_model) depuis son email.
+ * find_id() pareil que find_email() avec l'id.
+ * change_password() permet de changer le mot de passe d'un utilisateur avec son id.
+ * delete_user() permet de supprimer un utilisateur et toutes ses données.
+ * create_token() crée un token et sa date d'expiration (valide 10 min).
+ * find_token() vérifie si un token existe et est toujours valide, renvoie l'id de l'utilisateur.
+ * delete_token() efface le token lié à un id.
+ *
+ * @author Alexandre SBEGHEN
+ */
 
 namespace modules\models;
 
@@ -6,7 +22,7 @@ use assets\includes\init;
 use PDOException;
 use PDO;
 
-class UserRepository
+class user_repository_model
 {
     public function create(string $nom, string $prenom, string $email, string $password): bool {
         $pdo = init::getPDO();
@@ -26,7 +42,7 @@ class UserRepository
         }
     }
 
-    public function findEmail(string $email): ?User {
+    public function find_email(string $email): ?user_model {
         $pdo = init::getPDO();
         $sql = 'SELECT * FROM utilisateur WHERE adresse_mail = :email';
         $stmt = $pdo->prepare($sql);
@@ -35,14 +51,14 @@ class UserRepository
         try {
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result ? $this->createUserObjet($result) : null;
+            return $result ? $this->create_user_objet($result) : null;
         } catch (PDOException $e) {
-            error_log('Erreur findEmail : ' . $e->getMessage());
+            error_log('Erreur find_email : ' . $e->getMessage());
             return null;
         }
     }
 
-    public function findID(int $id): ?User {
+    public function find_id(int $id): ?user_model {
         $pdo = init::getPDO();
         $sql = 'SELECT * FROM utilisateur WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
@@ -51,14 +67,14 @@ class UserRepository
         try {
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result ? $this->createUserObjet($result) : null;
+            return $result ? $this->create_user_objet($result) : null;
         } catch (PDOException $e) {
-            error_log('Erreur findID : ' . $e->getMessage());
+            error_log('Erreur find_id : ' . $e->getMessage());
             return null;
         }
     }
 
-    public function changePassword(int $id, string $password): bool {
+    public function change_password(int $id, string $password): bool {
         $pdo = init::getPDO();
         $sql = 'UPDATE utilisateur SET mot_de_passe = :mot_de_passe WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
@@ -73,7 +89,7 @@ class UserRepository
         }
     }
 
-    public function deleteUser(int $id): bool {
+    public function delete_user(int $id): bool {
         $pdo = init::getPDO();
         $sql = 'DELETE FROM utilisateur WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
@@ -87,7 +103,7 @@ class UserRepository
         }
     }
 
-    public function createToken(int $id): string|false {
+    public function create_token(int $id): string|false {
         $pdo = init::getPDO();
         $token = bin2hex(random_bytes(16));
         $sql = 'UPDATE utilisateur SET token = :token, token_date_expiration = DATE_ADD(NOW(), INTERVAL 10 MINUTE) WHERE utilisateur_id = :id';
@@ -104,7 +120,7 @@ class UserRepository
         }
     }
 
-    public function findToken(string $token): ?int {
+    public function find_token(string $token): ?int {
         $pdo = init::getPDO();
         $sql = 'SELECT utilisateur_id FROM utilisateur WHERE token = :token AND token_date_expiration >= NOW()';
         $stmt = $pdo->prepare($sql);
@@ -115,12 +131,12 @@ class UserRepository
             $id = $stmt->fetchColumn();
             return $id !== false ? (int) $id : null;
         } catch (PDOException $e) {
-            error_log('Erreur findToken : ' . $e->getMessage());
+            error_log('Erreur find_token : ' . $e->getMessage());
             return null;
         }
     }
 
-    public function deleteToken(int $id): bool {
+    public function delete_token(int $id): bool {
         $pdo = init::getPDO();
         $sql = 'UPDATE utilisateur SET token = null, token_date_expiration = null WHERE utilisateur_id = :id';
         $stmt = $pdo->prepare($sql);
@@ -134,17 +150,16 @@ class UserRepository
         }
     }
 
-    private function createUserObjet(array $row): User {
-        return new User(
+    private function create_user_objet(array $row): user_model {
+        return new user_model(
             id: (int) $row['utilisateur_id'],
             nom: $row['nom'],
             prenom: $row['prenom'],
-            motDePasse: $row['mot_de_passe'],
-            adresseMail: $row['adresse_mail'],
-            dateCreation: $row['date_creation'] ?? null,
+            mot_de_passe: $row['mot_de_passe'],
+            adresse_mail: $row['adresse_mail'],
+            date_creation: $row['date_creation'],
             token: $row['token'] ?? null,
-            tokenDateExpiration: $row['token_date_expiration'] ?? null
+            token_date_expiration: $row['token_date_expiration'] ?? null
         );
     }
-
 }
