@@ -55,6 +55,9 @@ try {
         case 'register':
             (new \modules\controllers\register_controller())->execute();
             break;
+        case 'logout':
+            (new \modules\controllers\logout_controller())->execute();
+            break;
         default:
             throw new Exception('Page introuvable');
     }

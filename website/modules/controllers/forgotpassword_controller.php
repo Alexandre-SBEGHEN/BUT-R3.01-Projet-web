@@ -27,7 +27,7 @@ class forgotpassword_controller {
 
             if ($user !== null) {
                 // Génération du token en BDD (valide 10 min)
-                $user_repository->create_token($user->get_id());
+                $user_repository->create_token($user->getId());
             }
 
             header('Location: forgotpassword');
