@@ -150,6 +150,33 @@ class user_repository_model
         }
     }
 
+    public function find_all_paginated(int $page, int $per_page = 10): array {
+        $pdo = init::getPDO();
+
+        $page_sanitised = max(1, $page);
+        $offset = ($page_sanitised - 1) * $per_page;
+
+        $sql = 'SELECT * FROM utilisateur ORDER BY utilisateur_id LIMIT :limit OFFSET :offset';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue('limit', $per_page, PDO::PARAM_INT);
+        $stmt->bindValue('offset', $offset, PDO::PARAM_INT);
+
+        try {
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return array_map([$this, 'create_user_object'], $results);
+        } catch (PDOException $e) {
+            error_log('Erreur find_all_paginated : ' . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function count_all(): int {
+        $pdo = init::getPDO();
+        $stmt = $pdo->query('SELECT COUNT(*) FROM utilisateur');
+        return (int) $stmt->fetchColumn();
+    }
+
     private function create_user_objet(array $row): user_model {
         return new user_model(
             id: (int) $row['utilisateur_id'],
