@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Réutilisation du builder de .github/tools
+./.github/tools/wsbuilder \
+  --sass-compile \
+  --sass-compress \
+  --sass-no-source-map \
+  website
