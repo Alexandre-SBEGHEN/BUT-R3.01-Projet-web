@@ -12,13 +12,21 @@
  * @author MANKAI Adam
  * @author SBEGHEN Alexandre
  */
+if (PHP_SAPI === 'cli-server') {
+    $path = __DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    if ($path !== __DIR__ . '/' && file_exists($path) && !is_dir($path)) {
+        return false;
+    }
+}
 
 // Pré-requis
 session_start();
-require_once 'assets/includes/init.php';
-\assets\includes\init::init(__DIR__, '/assets/images', '/assets/styles');
-require 'assets/includes/autoloader.php';
 
+use assets\includes\init;
+
+require_once 'assets/includes/init.php';
+init::init(__DIR__, '/assets/images', '/assets/styles');
+require 'assets/includes/autoloader.php';
 
 // Obtenir la page cible en fonction de l'URL
 $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
@@ -30,11 +38,22 @@ try {
         case 'home':
             (new \modules\controllers\home_controller())->execute();
             break;
+        case 'about':
+            (new \modules\controllers\about_controller())->execute();
+            break;
         case 'login':
             (new \modules\controllers\login_controller())->execute();
             break;
+        case 'legal-notice':
+            (new \modules\controllers\legal_notice_controller())->execute();
         case 'forgotpassword':
             (new \modules\controllers\forgotpassword_controller())->execute();
+            break;
+        case 'sitemap':
+            (new \modules\controllers\sitemap_controller())->execute();
+            break;
+        case 'register':
+            (new \modules\controllers\register_controller())->execute();
             break;
         default:
             throw new Exception('Page introuvable');

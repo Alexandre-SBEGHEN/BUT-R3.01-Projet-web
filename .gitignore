@@ -11,3 +11,6 @@ env.ini
 *.css
 *.css.map
 build/
+
+# Variables d'environnement
+env.ini
