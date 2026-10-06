@@ -23,12 +23,10 @@ class template_view {
      *
      * @param string $title Titre de la page.
      * @param string $description Meta-description de la page.
-     * @param string $css_names [Facultatif] Lien vers les styles CSS.
+     * @param array $css_names [Facultatif] Lien vers les styles CSS.
      * @return void
      */
     public static function html_begin(string $title, string $description, array $css_names = []): void {
-        // $css_element = ($css_path !== '') ? "\n\t<link rel='stylesheet' type='text/css' href='$css_path'>" : '';
-
         // Début, jusqu'aux CSS
         echo <<< HTML
 <!DOCTYPE html>
@@ -75,20 +73,27 @@ HTML;
     /**
      * Insère un header dans la page.
      *
-     * Contient l'en-tête du de la page avec notamment
+     * Contient l'en-tête de la page avec notamment
      * le menu de navigation, le logo, etc.
      *
      * @param string $current_page Nom de la page actuelle (utilisé dans le navbar pour distinguer la page actuelle)
      *
      * @return void
      */
-    public static function page_header(string $current_page=''): void {
+    public static function page_header(string $current_page = ''): void {
         // Liste des liens du navbar
         $navmenu_links = array(
             'Accueil' => '',
-            'Connexion' => 'login',
-            'A propos' => 'about',
         );
+
+        // Affichage dynamique Connexion / Déconnexion selon la session
+        if (isset($_SESSION['user'])) {
+            $navmenu_links['Déconnexion'] = 'logout';
+        } else {
+            $navmenu_links['Connexion'] = 'login';
+        }
+
+        $navmenu_links['A propos'] = 'about';
 
         // Logo svg de amU IUT
         $amu_iut_src = \assets\includes\init::getImagesDir() . '/header/amu_iut_blue_dark.svg';
@@ -132,7 +137,7 @@ HTML;
         // Liste des liens à insérer
         $footer_links = array(
             'Accueil' => '/',
-            'A propos' => '/about',
+            'Plan du site' => '/sitemap',
             'Mentions légales' => '/legal-notice',
             'Données personnelles' => '/personnal-data',
             'Contact' => 'mailto:cyber-cigales@alwaysdata.net',

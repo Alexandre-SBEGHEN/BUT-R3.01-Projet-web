@@ -38,11 +38,25 @@ try {
         case 'home':
             (new \modules\controllers\home_controller())->execute();
             break;
+        case 'about':
+            (new \modules\controllers\about_controller())->execute();
+            break;
         case 'login':
             (new \modules\controllers\login_controller())->execute();
             break;
+        case 'legal-notice':
+            (new \modules\controllers\legal_notice_controller())->execute();
         case 'forgotpassword':
             (new \modules\controllers\forgotpassword_controller())->execute();
+            break;
+        case 'sitemap':
+            (new \modules\controllers\sitemap_controller())->execute();
+            break;
+        case 'register':
+            (new \modules\controllers\register_controller())->execute();
+            break;
+        case 'logout':
+            (new \modules\controllers\logout_controller())->execute();
             break;
         default:
             throw new Exception('Page introuvable');

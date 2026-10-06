@@ -16,13 +16,18 @@ class forgotpassword_view {
             unset($_SESSION['error']);
         }
 
+        if (isset($_SESSION['success'])) {
+            echo "<p class='success'>" . htmlspecialchars($_SESSION['success']) . "</p>";
+            unset($_SESSION['success']);
+        }
+
         echo <<< HTML
 <div class="container">
     <h1>Mot de passe oublié</h1>
     <form action="forgotpassword" method="POST">
         <input type="email" name="mail" placeholder="email" required>
         <br>
-        <button type="submit" name="submit">lien de réinitialisation </button>
+        <button type="submit" name="submit">Envoyer le lien</button>
     </form>
 </div>
 HTML;
