@@ -44,6 +44,8 @@ try {
         case 'login':
             (new \modules\controllers\login_controller())->execute();
             break;
+        case 'legal-notice':
+            (new \modules\controllers\legal_notice_controller())->execute();
         case 'forgotpassword':
             (new \modules\controllers\forgotpassword_controller())->execute();
             break;

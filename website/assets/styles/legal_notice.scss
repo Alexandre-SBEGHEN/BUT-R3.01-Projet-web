@@ -1,0 +1,90 @@
+///legal.css
+///
+///style de la page mentions légales.
+///
+///permet de mettre en forme les titres
+///et les textes.
+///
+///@author Kawthar CHAIB EDDOUR
+
+@use 'palette' as *;
+
+.legal {
+  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+  color: $PALETTE-BLACK;
+  background-color: $PALETTE-GRAY-LIGHT;
+  padding: 4rem 1rem;
+
+  h1, h2 {
+    font-family: 'Gasoek One', sans-serif;
+  }
+
+  // Titre principal
+  .title {
+    max-width: 50rem;
+    margin: 0 auto 3rem;
+    padding-bottom: 1rem;
+    font-size: 2.5rem;
+    text-align: center;
+    color: $PALETTE-BLUE-DARK;
+    border-bottom: 6px solid $PALETTE-BLUE-LIGHT;
+  }
+
+  // section
+  section {
+    max-width: 50rem;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    background: $PALETTE-WHITE;
+    border-left: 6px solid $PALETTE-GREEN-DARK;
+
+    h2 {
+      font-size: 1.5rem;
+      color: $PALETTE-GREEN-DARK;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: $PALETTE-GRAY;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    strong {
+      color: $PALETTE-BLACK;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      line-height: 1.6;
+      padding: 0.8rem 0 0.8rem 1rem;
+      color: $PALETTE-GRAY;
+      border-bottom: 1px solid $PALETTE-GRAY-LIGHT;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  // Lien mail
+  .legal_link {
+    color: $PALETTE-BLUE-DARK;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
