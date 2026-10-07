@@ -3,6 +3,7 @@
 namespace modules\controllers;
 
 use modules\models\user_repository_model;
+use assets\includes\mailer;
 
 class forgotpassword_controller {
     public function execute(): void {
@@ -34,9 +35,8 @@ class forgotpassword_controller {
                     $resetLink = 'http://' . $_SERVER['HTTP_HOST'] . '/reset-password?token=' . $token;
                     $subject = 'Réinitialisation de votre mot de passe';
                     $message = "Bonjour,\n\nVoici votre lien de réinitialisation (valide 10 minutes) :\n$resetLink\n\nSi vous n'êtes pas à l'origine de cette demande, ignorez cet email.";
-                    $headers = 'From: no-reply@cyber-cigales.alwaysdata.net';
 
-                    mail($mail, $subject, $message, $headers);
+                    mailer::send($mail, $subject, $message);
                 }
             }
 

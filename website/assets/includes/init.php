@@ -56,7 +56,7 @@ class init {
             self::$PDO = new \PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             self::$databaseConnected = true;
         } catch (\PDOException $e) {
-            // die('Erreur : ' . $e->getMessage());
+            die('Erreur : ' . $e->getMessage());
             self::$databaseConnected = false;
         }
     }

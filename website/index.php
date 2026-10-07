@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
 /**
  * index.php
  *
@@ -49,8 +50,8 @@ try {
         case 'forgotpassword':
             (new \modules\controllers\forgotpassword_controller())->execute();
             break;
-        case 'forgotpassword':
-            (new \modules\controllers\forgotpassword_controller())->execute();
+        case 'reset-password':
+            (new \modules\controllers\reset_password_controller())->execute();
             break;
         case 'sitemap':
             (new \modules\controllers\sitemap_controller())->execute();
