@@ -86,9 +86,9 @@ HTML;
             'Accueil' => '',
         );
 
-        // Affichage dynamique Connexion / Déconnexion selon la session
-        if (isset($_SESSION['user'])) {
-            $navmenu_links['Déconnexion'] = 'logout';
+        // Affichage dynamique Connexion / Profil selon la session
+        if (isset($_SESSION['user_id'])) {
+            $navmenu_links['Profil'] = 'profile';
         } else {
             $navmenu_links['Connexion'] = 'login';
         }
@@ -139,7 +139,6 @@ HTML;
             'Accueil' => '/',
             'Plan du site' => '/sitemap',
             'Mentions légales' => '/legal-notice',
-            'Données personnelles' => '/personnal-data',
             'Contact' => 'mailto:cyber-cigales@alwaysdata.net',
         );
 

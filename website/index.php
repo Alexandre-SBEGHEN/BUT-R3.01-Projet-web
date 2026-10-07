@@ -21,8 +21,6 @@ if (PHP_SAPI === 'cli-server') {
 }
 
 // Pré-requis
-session_start();
-
 use assets\includes\init;
 
 require_once 'assets/includes/init.php';
@@ -32,6 +30,8 @@ require 'assets/includes/autoloader.php';
 // Obtenir la page cible en fonction de l'URL
 $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 $page = ($path === '') ? 'home' : $path;
+
+session_start();
 
 // Essayer d'obtenir la page désirée
 try {
@@ -47,6 +47,7 @@ try {
             break;
         case 'legal-notice':
             (new \modules\controllers\legal_notice_controller())->execute();
+            break;
         case 'forgotpassword':
             (new \modules\controllers\forgotpassword_controller())->execute();
             break;
@@ -61,6 +62,9 @@ try {
             break;
         case 'logout':
             (new \modules\controllers\logout_controller())->execute();
+            break;
+        case 'profile':
+            (new \modules\controllers\profile_controller())->execute();
             break;
         default:
             throw new Exception('Page introuvable');
