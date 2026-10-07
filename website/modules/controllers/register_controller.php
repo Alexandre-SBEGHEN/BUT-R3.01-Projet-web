@@ -35,17 +35,18 @@ class register_controller {
             exit;
         }
 
-        $user_model = new \modules\models\user_model();
+        // CORRECTION : On instancie le bon gestionnaire de base de données
+        $user_repo = new \modules\models\user_repository_model();
 
-        // Message générique : on ne révèle pas si l'email existe déjà (sécurité)
-        if ($user_model->findEmail($email) !== null) {
+        // Vérification si l'email existe déjà (attention à l'orthographe : find_email)
+        if ($user_repo->find_email($email) !== null) {
             $_SESSION['error'] = "Inscription impossible. Connecte-toi si tu as déjà un compte.";
             header('Location: register');
             exit;
         }
 
         // Création du compte en BDD
-        $success = $user_model->create($nom, $prenom, $email, $password);
+        $success = $user_repo->create($nom, $prenom, $email, $password);
 
         if ($success) {
             $_SESSION['success'] = "Compte créé, tu peux te connecter.";
