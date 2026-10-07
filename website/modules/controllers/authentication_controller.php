@@ -50,6 +50,8 @@ class authentication_controller
 
         // On stocke que l'id car l'objet contient le hash du mot de passe)
         $_SESSION['user_id'] = $user->getId();
+        // on a beosin de la ligne car on doit récuperer les infos de l'utilisateur
+        $_SESSION['user'] = $user;
 
         header('Location: /home');
         exit;
