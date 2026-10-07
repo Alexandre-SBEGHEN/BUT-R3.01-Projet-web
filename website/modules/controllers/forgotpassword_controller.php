@@ -24,6 +24,7 @@ class forgotpassword_controller {
             $user_repository = new user_repository_model();
             $user = $user_repository->find_email($mail);
 
+            // Message générique de sécurité
             $_SESSION["success"] = "Si cet email est associé à un compte, un lien de réinitialisation a été généré.";
 
             if ($user !== null) {
