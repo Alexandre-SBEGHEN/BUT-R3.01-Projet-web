@@ -96,7 +96,7 @@
   transition: background 0.2s;
 
   &:hover {
-    background: color.adjust($PALETTE-BLUE-DARK, $lightness: 10%);
+    background: $PALETTE-BLUE;
   }
 }
 
