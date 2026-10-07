@@ -22,7 +22,7 @@ class legal_notice_view {
         template_view::html_begin(
             'Mentions légales - Cyber Cigales',
             'Mentions légales du site Cyber Cigales',
-            ['reset.css', 'header.css', 'footer.css', 'legal_notice.css']
+            ['reset.css','fonts.css', 'header.css', 'footer.css', 'legal_notice.css']
         );
         template_view::page_header();
         echo <<< HTML

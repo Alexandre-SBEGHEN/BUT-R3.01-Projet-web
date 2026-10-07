@@ -46,6 +46,7 @@ try {
             break;
         case 'legal-notice':
             (new \modules\controllers\legal_notice_controller())->execute();
+            break;
         case 'forgotpassword':
             (new \modules\controllers\forgotpassword_controller())->execute();
             break;

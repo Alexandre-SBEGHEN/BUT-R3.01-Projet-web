@@ -1,0 +1,7 @@
+parameters:
+	level: 5
+	paths: 
+	   - website
+	excludePaths:
+	   - vendor
+	   - website/build

@@ -5,31 +5,49 @@ namespace modules\views;
 class login_view {
     public function show(): void {
         template_view::html_begin(
-            title: 'Connexion',
-            description: 'Page de connexion',
-            css_names: ['reset.css', 'fonts.css', 'header.css', 'footer.css']
+            "Connexion - Cyber Cigales",
+            "Page de connexion à Cyber Cigales",
+            ["reset.css", "fonts.css", "header.css", "footer.css", "login.css"]
         );
         template_view::page_header('login');
+        ?>
 
-        if (isset($_SESSION['error'])) {
-            echo "<p class='error'>" . htmlspecialchars($_SESSION['error']) . "</p>";
-            unset($_SESSION['error']);
-        }
+        <main class="auth-page">
+            <section class="auth-box">
+                <h1>Connexion</h1>
 
-        echo <<< HTML
-<div class="container">
-    <h1>Connexion</h1>
-    <form action="login" method="POST">
-        <input type="email" name="mail" placeholder="email" required>
-        <br>
-        <input type="password" name="password" placeholder="Mot de passe" required>
-        <br>
-        <button type="submit" name="login">Se connecter</button>
-    </form>
-    <p>Pas encore de compte ? <a href="register">Inscription</a></p>
-</div>
-HTML;
+                <?php if (isset($_SESSION['error'])): ?>
+                    <div class="error-msg">
+                        <?= htmlspecialchars($_SESSION['error']); ?>
+                        <?php unset($_SESSION['error']); ?>
+                    </div>
+                <?php endif; ?>
 
+                <form action="/login" method="POST" class="auth-form">
+                    <div class="field">
+                        <label for="mail">Adresse e-mail</label>
+                        <input type="email" id="mail" name="mail" required placeholder="votre.email@exemple.fr">
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" required placeholder="••••••••">
+                    </div>
+
+                    <div class="pass-forgot">
+                        <a href="/forgotpassword">Mot de passe oublié ?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Se connecter</button>
+                </form>
+
+                <p class="bottom-link">
+                    Pas encore de compte ? <a href="/register">S'inscrire</a>
+                </p>
+            </section>
+        </main>
+
+        <?php
         template_view::page_footer();
         template_view::html_end();
     }
