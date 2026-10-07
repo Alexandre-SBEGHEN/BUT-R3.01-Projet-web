@@ -1,4 +1,7 @@
 {
+    "require": {
+        "phpmailer/phpmailer": "^7.1"
+    },
     "require-dev": {
         "phpstan/phpstan": "^2.3"
     }

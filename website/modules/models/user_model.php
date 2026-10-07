@@ -3,8 +3,6 @@
  * user_model.php
  *
  * Entité représentant un utilisateur.
- *
- * @author Alexandre SBEGHEN
  */
 
 namespace modules\models;
