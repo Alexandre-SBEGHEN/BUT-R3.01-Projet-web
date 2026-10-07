@@ -9,7 +9,7 @@ class about_view {
         template_view::html_begin(
             title: 'À propos - Cyber Cigales' ,
             description: ' Découvre le projet Cyber Cigales.' ,
-            css_names: ['reset.css', 'header.css', 'footer.css', 'about.css']
+            css_names: ['reset.css', 'fonts.css', 'header.css', 'footer.css', 'about.css']
         );
         template_view::page_header('about');
         echo <<< HTML
