@@ -66,6 +66,9 @@ try {
         case 'profile':
             (new \modules\controllers\profile_controller())->execute();
             break;
+        case 'delete_account':
+            (new \modules\controllers\delete_account_controller())->execute();
+            break;
         default:
             throw new Exception('Page introuvable');
     }
