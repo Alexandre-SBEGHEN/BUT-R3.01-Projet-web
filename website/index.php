@@ -50,6 +50,9 @@ try {
         case 'forgotpassword':
             (new \modules\controllers\forgotpassword_controller())->execute();
             break;
+        case 'reset-password':
+            (new \modules\controllers\reset_password_controller())->execute();
+            break;
         case 'sitemap':
             (new \modules\controllers\sitemap_controller())->execute();
             break;
@@ -61,6 +64,9 @@ try {
             break;
         case 'profile':
             (new \modules\controllers\profile_controller())->execute();
+            break;
+        case 'delete_account':
+            (new \modules\controllers\delete_account_controller())->execute();
             break;
         default:
             throw new Exception('Page introuvable');

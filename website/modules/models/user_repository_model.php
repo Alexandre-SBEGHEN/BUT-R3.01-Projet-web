@@ -12,8 +12,6 @@
  * create_token() crée un token et sa date d'expiration (valide 10 min).
  * find_token() vérifie si un token existe et est toujours valide, renvoie l'id de l'utilisateur.
  * delete_token() efface le token lié à un id.
- *
- * @author Alexandre SBEGHEN
  */
 
 namespace modules\models;
