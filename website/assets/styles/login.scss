@@ -24,6 +24,8 @@
     text-align: center;
     color: $PALETTE-BLUE-DARK;
     font-weight: 700;
+
+    font-family: "Gasoek One", sans-serif;
   }
 }
 
@@ -35,6 +37,8 @@
   margin-bottom: 1rem;
   font-size: 0.9rem;
   border: 1px solid #f5c6cb;
+
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
 }
 
 .auth-form {
@@ -52,6 +56,8 @@
     font-weight: 600;
     font-size: 0.95rem;
     color: $PALETTE-BLACK;
+
+    font-family: "Plus Jakarta Sans Variable", sans-serif;
   }
 
   input {
@@ -72,6 +78,8 @@
 .pass-forgot {
   display: flex;
   justify-content: flex-end;
+
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
 
   a {
     font-size: 0.85rem;
@@ -105,6 +113,8 @@
   text-align: center;
   font-size: 0.9rem;
   color: $PALETTE-BLACK;
+
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
 
   a {
     color: $PALETTE-BLUE-DARK;

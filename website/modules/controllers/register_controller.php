@@ -18,7 +18,7 @@ class register_controller {
     private function process_register(): void {
         $prenom = trim($_POST['prenom'] ?? '');
         $nom = trim($_POST['nom'] ?? '');
-        $email = trim($_POST['email'] ?? '');
+        $email = trim($_POST['mail'] ?? '');
         $password = trim($_POST['password'] ?? '');
 
         // Vérification des champs vides
@@ -35,19 +35,21 @@ class register_controller {
             exit;
         }
 
-        $user_repository = new \modules\models\user_repository_model();
+        // CORRECTION : On instancie le bon gestionnaire de base de données
+        $user_repo = new \modules\models\user_repository_model();
 
-        // Vérification de si l'email existe déjà dans la BDD
-        if ($user_repository->find_email($email) !== null) {
-            $_SESSION['error'] = "Cet email est déjà utilisé.";
+        // Vérification si l'email existe déjà (attention à l'orthographe : find_email)
+        if ($user_repo->find_email($email) !== null) {
+            $_SESSION['error'] = "Inscription impossible. Connecte-toi si tu as déjà un compte.";
             header('Location: register');
             exit;
         }
 
         // Création du compte en BDD
-        $success = $user_repository->create($nom, $prenom, $email, $password);
+        $success = $user_repo->create($nom, $prenom, $email, $password);
 
         if ($success) {
+            $_SESSION['success'] = "Compte créé, tu peux te connecter.";
             header('Location: login');
             exit;
         } else {
