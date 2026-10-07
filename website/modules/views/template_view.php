@@ -87,7 +87,7 @@ HTML;
         );
 
         // Affichage dynamique Connexion / Déconnexion selon la session
-        if (isset($_SESSION['user'])) {
+        if (isset($_SESSION['user_id'])) {
             $navmenu_links['Déconnexion'] = 'logout';
         } else {
             $navmenu_links['Connexion'] = 'login';
