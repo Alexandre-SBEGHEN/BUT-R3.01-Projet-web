@@ -35,17 +35,17 @@ class register_controller {
             exit;
         }
 
-        $user_model = new \modules\models\user_model();
+        $user_repository = new \modules\models\user_repository_model();
 
         // Vérification de si l'email existe déjà dans la BDD
-        if ($user_model->findEmail($email) !== null) {
+        if ($user_repository->find_email($email) !== null) {
             $_SESSION['error'] = "Cet email est déjà utilisé.";
             header('Location: register');
             exit;
         }
 
         // Création du compte en BDD
-        $success = $user_model->create($nom, $prenom, $email, $password);
+        $success = $user_repository->create($nom, $prenom, $email, $password);
 
         if ($success) {
             header('Location: login');
