@@ -6,7 +6,7 @@ class delete_account_view{
         template_view::html_begin(
             'Supprimer mon compte',
             'Confirmation de la suppression de ton compte',
-            ['reset.css', 'fonts.css','header.css','footer.css'],
+            ['reset.css', 'fonts.css','header.css','footer.css','delete_account.css'],
         );
         template_view::page_header();
 
@@ -19,7 +19,7 @@ class delete_account_view{
             <input type="hidden" name="confirm" value="yes">
             <button type="submit"> Oui, supprimer définitivement mon compte.</button>
         </form>
-        <a href="/profil"> Non, annuler </a>
+        <a href="/profile"> Non, annuler </a>
     </main>
 HTML;
         template_view::page_footer();
