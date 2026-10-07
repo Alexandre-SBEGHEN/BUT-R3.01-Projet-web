@@ -5,7 +5,7 @@ namespace modules\controllers;
 class profile_controller {
 
     public function execute() {
-        if(!isset($_SESSION['user'])) {
+        if(!isset($_SESSION['user_id'])) {
             header('Location: /login');
             exit;
         }
