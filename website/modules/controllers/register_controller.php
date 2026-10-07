@@ -18,7 +18,7 @@ class register_controller {
     private function process_register(): void {
         $prenom = trim($_POST['prenom'] ?? '');
         $nom = trim($_POST['nom'] ?? '');
-        $email = trim($_POST['email'] ?? '');
+        $email = trim($_POST['mail'] ?? '');
         $password = trim($_POST['password'] ?? '');
 
         // Vérification des champs vides
@@ -37,9 +37,9 @@ class register_controller {
 
         $user_model = new \modules\models\user_model();
 
-        // Vérification de si l'email existe déjà dans la BDD
+        // Message générique : on ne révèle pas si l'email existe déjà (sécurité)
         if ($user_model->findEmail($email) !== null) {
-            $_SESSION['error'] = "Cet email est déjà utilisé.";
+            $_SESSION['error'] = "Inscription impossible. Connecte-toi si tu as déjà un compte.";
             header('Location: register');
             exit;
         }
@@ -48,6 +48,7 @@ class register_controller {
         $success = $user_model->create($nom, $prenom, $email, $password);
 
         if ($success) {
+            $_SESSION['success'] = "Compte créé, tu peux te connecter.";
             header('Location: login');
             exit;
         } else {
