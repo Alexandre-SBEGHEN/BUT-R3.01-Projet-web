@@ -86,7 +86,7 @@ HTML;
             'Accueil' => '',
         );
 
-        // Affichage dynamique Connexion / Déconnexion selon la session
+        // Affichage dynamique Connexion / Profil selon la session
         if (isset($_SESSION['user_id'])) {
             $navmenu_links['Profil'] = 'profile';
         } else {

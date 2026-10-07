@@ -53,7 +53,7 @@ class authentication_controller
         // on a beosin de la ligne car on doit récuperer les infos de l'utilisateur
         $_SESSION['user'] = $user;
 
-        header('Location: /home');
+        header('Location: /profile');
         exit;
     }
 }
