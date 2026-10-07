@@ -139,7 +139,6 @@ HTML;
             'Accueil' => '/',
             'Plan du site' => '/sitemap',
             'Mentions légales' => '/legal-notice',
-            'Données personnelles' => '/personnal-data',
             'Contact' => 'mailto:cyber-cigales@alwaysdata.net',
         );
 
