@@ -35,8 +35,6 @@ class forgotpassword_controller {
                     $resetLink = 'http://' . $_SERVER['HTTP_HOST'] . '/reset-password?token=' . $token;
                     $subject = 'Réinitialisation de votre mot de passe';
                     $message = "Bonjour,\n\nVoici votre lien de réinitialisation (valide 10 minutes) :\n$resetLink\n\nSi vous n'êtes pas à l'origine de cette demande, ignorez cet email.";
-
-                    mailer::send($mail, $subject, $message);
                 }
             }
 
