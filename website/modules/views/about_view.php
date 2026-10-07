@@ -49,7 +49,7 @@ class about_view {
             </ul>
             <h3> Directeur du projet </h3>
             <p>
-                MARTIN NEVOT Mickael -  Enseignant / formateur en informatique et en conception de jeux vidéo - 
+                <a href="https://www.mickael-martin-nevot.com/" target="_blank" rel="noopener noreferrer">MARTIN NEVOT Mickael</a> -  Enseignant / formateur en informatique et en conception de jeux vidéo - 
                 IUT d'Aix-Marseille - Aix Marseille Université
             </p>
             <h3> Directeur de la SAE </h3>
