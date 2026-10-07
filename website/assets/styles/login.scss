@@ -79,6 +79,8 @@
   display: flex;
   justify-content: flex-end;
 
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
+
   a {
     font-size: 0.85rem;
     color: $PALETTE-GRAY;
@@ -88,8 +90,6 @@
       color: $PALETTE-BLUE-DARK;
     }
   }
-
-  font-family: "Plus Jakarta Sans Variable", sans-serif;
 }
 
 .submit-btn {
@@ -114,6 +114,8 @@
   font-size: 0.9rem;
   color: $PALETTE-BLACK;
 
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
+
   a {
     color: $PALETTE-BLUE-DARK;
     font-weight: bold;
@@ -122,6 +124,4 @@
       text-decoration: underline;
     }
   }
-
-  font-family: "Plus Jakarta Sans Variable", sans-serif;
 }
