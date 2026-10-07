@@ -35,6 +35,15 @@ class register_controller {
             exit;
         }
 
+        // Validation de la complexité du mot de passe
+        // Min 12 caractères, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial
+        $password_pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{12,}$/'; //utilisation de l'ia pour cette ligne et celle en dessous
+        if (!preg_match($password_pattern, $password)) {
+            $_SESSION['error'] = "Le mot de passe doit contenir au moins 12 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.";
+            header('Location: register');
+            exit;
+        }
+
         // CORRECTION : On instancie le bon gestionnaire de base de données
         $user_repo = new \modules\models\user_repository_model();
 
