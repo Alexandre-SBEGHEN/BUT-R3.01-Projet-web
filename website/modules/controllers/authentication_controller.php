@@ -34,7 +34,7 @@ class authentication_controller
 
         if ($user === null) {
             $_SESSION["error"] = "Email ou mot de passe incorrect.";
-            header('Location: lGogin');
+            header('Location: login');
             exit;
         }
 
