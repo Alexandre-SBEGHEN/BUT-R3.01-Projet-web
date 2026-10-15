@@ -11,10 +11,6 @@ env.ini
 *.css
 *.css.map
 build/
-vendor/
 
 # Variables d'environnement
 env.ini
-
-#Vendor
-vendor/
