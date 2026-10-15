@@ -19,7 +19,7 @@ class sitemap_view {
         template_view::html_begin(
             'Plan du site',
             'Toutes les pages du site non hiérarchisées',
-            ['reset.css', 'fonts.css', 'header.css', 'footer.css']
+            ['reset.css', 'fonts.css', 'header.css', 'footer.css','sitemap.css']
         );
         template_view::page_header('sitemap');
 
