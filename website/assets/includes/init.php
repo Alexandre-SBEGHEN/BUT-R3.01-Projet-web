@@ -18,7 +18,7 @@ class init {
     private static string $ROOT_DIR;
     private static string $IMAGES_DIR;
     private static string $CSS_DIR;
-    private static ?\PDO $PDO;
+    private static \PDO $PDO;
 
     private static bool $databaseConnected;
 
