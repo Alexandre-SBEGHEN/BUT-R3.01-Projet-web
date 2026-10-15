@@ -18,16 +18,15 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1rem;
 
   background-color: palette.$PALETTE-BLUE-LIGHT;
 
   // Titre du site
   &__title {
     text-align: center;
-
     text-decoration: none;
     color: palette.$PALETTE-BLUE-DARK;
-
     font-family: "Gasoek One", sans-serif;
     font-size: 28pt;
   }
@@ -38,22 +37,21 @@
     border-radius: 2rem;
     display: flex;
     gap: 0.25rem;
-
     background-color: palette.$PALETTE-WHITE;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   // Lien vers une page
   &__link {
     text-decoration: none;
     color: palette.$PALETTE-GRAY;
-
     font-family: "Plus Jakarta Sans Variable", sans-serif;
     font-size: 14pt;
-
     padding: 0.5rem 1rem;
     background-color: #FFFFFF;
     border-radius: 2rem;
-
     transition: ease-in-out 200ms;
 
     // si = page actuelle
@@ -65,6 +63,38 @@
     // Afficher contour si la souris est dessus
     &:hover {
       background-color: palette.$PALETTE-GRAY-LIGHT;
+    }
+  }
+
+  // --- Adaptations Responsive ---
+
+  // Pour les tablettes et petits écrans
+  @media screen and (max-width: 900px) {
+    padding: 1rem;
+    justify-content: center;
+    text-align: center;
+
+    &__title {
+      font-size: 22pt;
+    }
+
+    &__links {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  // Pour les smartphones
+  @media screen and (max-width: 600px) {
+    &__links {
+      flex-direction: column;
+      gap: 0.5rem;
+      border-radius: 1rem;
+    }
+
+    &__link {
+      display: block;
+      text-align: center;
     }
   }
 }

@@ -1,0 +1,39 @@
+@use 'palette';
+
+.sitemap {
+  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+  padding: 4rem 1rem;
+  background-color: palette.$PALETTE-GREEN-LIGHT;
+
+  &__title {
+    font-family: 'Gasoek One', sans-serif;
+    font-size: 2.5rem;
+    color: palette.$PALETTE-GREEN-DARK;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__links {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2.5rem 2.5rem 2.5rem 4rem;
+    list-style: disc;
+    border-radius: 8px;
+    background: palette.$PALETTE-WHITE;
+    border-top: 6px solid palette.$PALETTE-GREEN-DARK;
+  }
+
+  &__link {
+    margin-bottom: 0.8rem;
+  }
+
+  .sitemap_text {
+    font-weight: 700;
+    color: palette.$PALETTE-BLUE-DARK;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

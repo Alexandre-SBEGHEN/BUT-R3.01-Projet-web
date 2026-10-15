@@ -7,7 +7,7 @@ class forgotpassword_view {
         template_view::html_begin(
             title: 'Mot de passe oublié',
             description: 'Page du mdp oublié',
-            css_names: ['reset.css', 'header.css', 'footer.css']
+            css_names: ['reset.css','fonts.css', 'header.css', 'footer.css']
         );
         template_view::page_header('forgotpassword');
 

@@ -11,7 +11,7 @@ class logout_controller {
         session_destroy();
 
         // Rediriger
-        header('Location: login');
+        header('Location: /');
         exit;
     }
 }

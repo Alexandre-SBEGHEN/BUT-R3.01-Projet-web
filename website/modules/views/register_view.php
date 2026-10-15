@@ -4,36 +4,57 @@ namespace modules\views;
 
 class register_view {
     public function show(): void {
+        // Charge les styles globaux ainsi que le CSS de connexion/inscription
         template_view::html_begin(
-            title: 'Inscription',
-            description: "Page d'inscription à Cyber Cigales",
-            css_names: ['reset.css', 'fonts.css', 'header.css', 'footer.css']
+            "Inscription - Cyber Cigales",
+            "Page d'inscription à Cyber Cigales",
+            ["reset.css", "fonts.css", "header.css", "footer.css", "login.css"]
         );
         template_view::page_header('register');
+        ?>
 
-        if (isset($_SESSION['error'])) {
-            echo "<p class='error'>" . htmlspecialchars($_SESSION['error']) . "</p>";
-            unset($_SESSION['error']);
-        }
+        <main class="auth-page">
+            <section class="auth-box">
+                <h1>Inscription</h1>
 
-        echo <<< HTML
-<div class="container">
-    <h1>Inscription</h1>
-    <form action="register" method="POST">
-        <input type="text" name="prenom" placeholder="prenom" required>
-        <br>
-        <input type="text" name="nom" placeholder="nom" required>
-        <br>
-        <input type="email" name="email" placeholder="mail" required>
-        <br>
-        <input type="password" name="password" placeholder="Mot de passe" required>
-        <br>
-        <button type="submit" name="register">S'inscrire</button>
-        <p>Déjà un compte ? <a href="login">Se connecter</a></p>.
-    </form>
-</div>
-HTML;
+                <?php if (isset($_SESSION['error'])): ?>
+                    <div class="error-msg">
+                        <?= htmlspecialchars($_SESSION['error']); ?>
+                        <?php unset($_SESSION['error']); ?>
+                    </div>
+                <?php endif; ?>
 
+                <form action="/register" method="POST" class="auth-form">
+                    <div class="field">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+                    </div>
+
+                    <div class="field">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+                    </div>
+
+                    <div class="field">
+                        <label for="mail">Adresse e-mail</label>
+                        <input type="email" id="mail" name="mail" required placeholder="votre.email@exemple.fr">
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" required placeholder="••••••••">
+                    </div>
+
+                    <button type="submit" class="submit-btn">S'inscrire</button>
+                </form>
+
+                <p class="bottom-link">
+                    Déjà un compte ? <a href="/login">Se connecter</a>
+                </p>
+            </section>
+        </main>
+
+        <?php
         template_view::page_footer();
         template_view::html_end();
     }

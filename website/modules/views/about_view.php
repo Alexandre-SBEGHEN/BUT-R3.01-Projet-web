@@ -9,7 +9,7 @@ class about_view {
         template_view::html_begin(
             title: 'À propos - Cyber Cigales' ,
             description: ' Découvre le projet Cyber Cigales.' ,
-            css_names: ['reset.css', 'header.css', 'footer.css', 'about.css']
+            css_names: ['reset.css', 'fonts.css', 'header.css', 'footer.css', 'about.css']
         );
         template_view::page_header('about');
         echo <<< HTML
@@ -49,7 +49,7 @@ class about_view {
             </ul>
             <h3> Directeur du projet </h3>
             <p>
-                MARTIN NEVOT Mickael -  Enseignant / formateur en informatique et en conception de jeux vidéo - 
+                <a href="https://www.mickael-martin-nevot.com/" target="_blank" rel="noopener noreferrer">MARTIN NEVOT Mickael</a> -  Enseignant / formateur en informatique et en conception de jeux vidéo - 
                 IUT d'Aix-Marseille - Aix Marseille Université
             </p>
             <h3> Directeur de la SAE </h3>
